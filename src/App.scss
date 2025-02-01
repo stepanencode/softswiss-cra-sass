@@ -141,6 +141,8 @@ $breakpoints: (
       align-items: center;
       gap: 0.5rem;
       width: fit-content;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
 
       @include respond-to(md) {
         padding-left: 0;
