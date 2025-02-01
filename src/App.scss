@@ -57,19 +57,12 @@ $breakpoints: (
     }
   }
 
+  /* Гамбургер-кнопка */
   &__menu-toggle {
     display: none;
 
-    &:checked ~ .header__menu-icon span:nth-child(1) {
-      transform: rotate(45deg) translateY(8px);
-    }
-
-    &:checked ~ .header__menu-icon span:nth-child(2) {
-      opacity: 0;
-    }
-
-    &:checked ~ .header__menu-icon span:nth-child(3) {
-      transform: rotate(-45deg) translateY(-8px);
+    &:checked ~ .header__menu-icon {
+      @extend .header__menu-icon--active;
     }
 
     &:checked ~ .header__nav {
@@ -77,6 +70,7 @@ $breakpoints: (
     }
   }
 
+  /* Иконка гамбургера */
   &__menu-icon {
     display: flex;
     flex-direction: column;
@@ -92,11 +86,24 @@ $breakpoints: (
       transition: transform 0.3s ease, opacity 0.3s ease;
     }
 
+    &--active {
+      span:nth-child(1) {
+        transform: rotate(45deg) translateY(8px);
+      }
+      span:nth-child(2) {
+        opacity: 0;
+      }
+      span:nth-child(3) {
+        transform: rotate(-45deg) translateY(-8px);
+      }
+    }
+
     @include respond-to(md) {
       display: none;
     }
   }
 
+  /* Навигация */
   &__nav {
     display: none;
     flex-direction: column;
@@ -133,6 +140,7 @@ $breakpoints: (
       @include respond-to(md) {
         padding-left: 0;
       }
+
       &:hover {
         color: $emphasis-color;
       }
