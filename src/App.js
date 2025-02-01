@@ -2,6 +2,7 @@
 import React from 'react';
 import './App.scss';
 import planetIcon from './assets/images/planet.svg';
+import cartIcon from './assets/images/cart.svg';
 
 const App = () => {
   return (
@@ -28,8 +29,9 @@ const App = () => {
           <a href="#" className="header__nav-item">
             <span className="header__nav-text">Products</span>
           </a>
-          <a href="#" className="header__nav-item">
-            <span className="header__nav-text">Cart</span>
+          <a href="#" className="header__nav-item header__cart">
+            <span className="header__cart-text">Cart</span>
+            <img src={cartIcon} alt="Cart" className="header__cart-icon" />
           </a>
         </nav>
       </header>

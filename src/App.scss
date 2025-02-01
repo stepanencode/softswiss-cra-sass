@@ -41,6 +41,10 @@ $breakpoints: (
     padding: clamp(1rem, 3vw, 3rem);
   }
 
+  @include respond-to(lg) {
+    padding: clamp(1rem, 3vw, 5rem);
+  }
+
   &__logo {
     display: flex;
     align-items: center;
@@ -57,7 +61,6 @@ $breakpoints: (
     }
   }
 
-  /* Гамбургер-кнопка */
   &__menu-toggle {
     display: none;
 
@@ -70,7 +73,6 @@ $breakpoints: (
     }
   }
 
-  /* Иконка гамбургера */
   &__menu-icon {
     display: flex;
     flex-direction: column;
@@ -103,7 +105,6 @@ $breakpoints: (
     }
   }
 
-  /* Навигация */
   &__nav {
     display: none;
     flex-direction: column;
@@ -136,6 +137,10 @@ $breakpoints: (
       font-size: 1.125rem;
       color: $text-color;
       text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      width: fit-content;
 
       @include respond-to(md) {
         padding-left: 0;
@@ -144,6 +149,43 @@ $breakpoints: (
       &:hover {
         color: $emphasis-color;
       }
+
+      &:active,
+      &:focus-within,
+      &--active {
+        color: $emphasis-color;
+      }
+    }
+  }
+
+  &__cart {
+    display: flex;
+    align-items: center;
+
+    &-text {
+      display: block;
+
+      @include respond-to(md) {
+        display: none;
+      }
+    }
+
+    &-icon {
+      display: none;
+      width: 24px;
+      height: 24px;
+      transition: filter 0.3s ease;
+
+      @include respond-to(md) {
+        display: block;
+      }
+    }
+
+    &:active .header__cart-icon,
+    &:focus-within .header__cart-icon,
+    &--active .header__cart-icon {
+      filter: brightness(0) saturate(100%) invert(88%) sepia(65%) saturate(361%)
+        hue-rotate(9deg) brightness(107%) contrast(103%);
     }
   }
 }
