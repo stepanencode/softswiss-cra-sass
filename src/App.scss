@@ -28,7 +28,6 @@ $breakpoints: (
   }
 }
 
-/* Header Styles */
 .header {
   display: flex;
   justify-content: space-between;
@@ -107,7 +106,10 @@ $breakpoints: (
     width: 100%;
     background-color: $background-color;
     gap: 1rem;
-    padding-bottom: 0.5rem;
+    padding: 0.5rem;
+    // &--hidden {
+    //   display: none;
+    // }
 
     @include respond-to(md) {
       display: flex;
@@ -116,16 +118,21 @@ $breakpoints: (
       justify-content: flex-end;
       align-items: center;
       gap: 2rem;
-      padding-bottom: 0;
       width: auto;
+      padding: 0;
+
+      // &--visible {
+      //   display: flex;
+      // }
     }
 
     &-item {
+      padding-left: 0.5rem;
       font-weight: 700;
       font-size: 1.125rem;
       color: $text-color;
       text-transform: uppercase;
-      padding-left: 0.5rem;
+
       @include respond-to(md) {
         padding-left: 0;
       }

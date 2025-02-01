@@ -21,15 +21,15 @@ const App = () => {
           <span></span>
           <span></span>
         </label>
-        <nav className="header__nav">
+        <nav className="header__nav header__nav--hidden">
           <a href="#" className="header__nav-item">
-            Home
+            <span className="header__nav-text">Home</span>
           </a>
           <a href="#" className="header__nav-item">
-            Products
+            <span className="header__nav-text">Products</span>
           </a>
           <a href="#" className="header__nav-item">
-            Cart
+            <span className="header__nav-text">Cart</span>
           </a>
         </nav>
       </header>
