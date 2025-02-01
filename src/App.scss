@@ -1,0 +1,80 @@
+@use 'sass:math';
+
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: Arial, sans-serif;
+  line-height: 1.5;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+ul,
+ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Variables */
+$primary-color: #4facfe;
+$secondary-color: #00f2fe;
+$text-color: white;
+$font-size-large: 2.5rem;
+$font-size-medium: 1.2rem;
+
+/* Mixins */
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin gradient-bg($color1, $color2) {
+  background: linear-gradient(to right, $color1, $color2);
+}
+
+/* App-specific styles following BEM methodology */
+.app {
+  &__container {
+    min-height: 100vh; /* Full viewport height */
+    @include flex-center;
+    flex-direction: column;
+    @include gradient-bg($primary-color, $secondary-color);
+    color: $text-color;
+  }
+
+  &__title {
+    font-size: $font-size-large;
+    margin-bottom: math.div($font-size-large, 2);
+  }
+
+  &__text {
+    font-size: $font-size-medium;
+  }
+}
