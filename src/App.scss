@@ -1,52 +1,16 @@
 @use 'sass:math';
 
-html,
-body,
-#root {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100%;
-  font-family: Arial, sans-serif;
-  line-height: 1.5;
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-ul,
-ol {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-button {
-  border: none;
-  background: none;
-  cursor: pointer;
-}
-
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
 /* Variables */
-$primary-color: #4facfe;
-$secondary-color: #00f2fe;
+$space-color: #ff70d9;
+$emphasis-color: #f4ff4b;
+$highlight-color: #1d2c5e;
 $text-color: white;
+$background-color: black;
 $font-size-large: 2.5rem;
 $font-size-medium: 1.2rem;
+$breakpoint-sm: 360px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1248px;
 
 /* Mixins */
 @mixin flex-center {
@@ -55,26 +19,115 @@ $font-size-medium: 1.2rem;
   align-items: center;
 }
 
-@mixin gradient-bg($color1, $color2) {
-  background: linear-gradient(to right, $color1, $color2);
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == sm {
+    @media (min-width: #{$breakpoint-sm}) {
+      @content;
+    }
+  } @else if $breakpoint == md {
+    @media (min-width: #{$breakpoint-md}) {
+      @content;
+    }
+  } @else if $breakpoint == lg {
+    @media (min-width: #{$breakpoint-lg}) {
+      @content;
+    }
+  }
 }
 
-/* App-specific styles following BEM methodology */
-.app {
-  &__container {
-    min-height: 100vh; /* Full viewport height */
-    @include flex-center;
+/* Header Styles */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1rem;
+  background-color: $background-color;
+  color: $space-color;
+  position: relative;
+
+  &__logo {
+    display: flex;
+    align-items: center;
+
+    &-icon {
+      width: 24px;
+      height: 24px;
+      margin-right: 0.5rem;
+    }
+
+    &-text {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+  }
+
+  &__menu-toggle {
+    display: none;
+
+    &:checked ~ .header__menu-icon span:nth-child(1) {
+      transform: rotate(45deg) translateY(8px);
+    }
+
+    &:checked ~ .header__menu-icon span:nth-child(2) {
+      opacity: 0;
+    }
+
+    &:checked ~ .header__menu-icon span:nth-child(3) {
+      transform: rotate(-45deg) translateY(-8px);
+    }
+
+    &:checked ~ .header__nav {
+      display: flex;
+    }
+  }
+
+  &__menu-icon {
+    display: flex;
     flex-direction: column;
-    @include gradient-bg($primary-color, $secondary-color);
-    color: $text-color;
+    justify-content: space-between;
+    width: 24px;
+    height: 18px;
+    cursor: pointer;
+
+    span {
+      display: block;
+      height: 2px;
+      background-color: $text-color;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    @include respond-to(md) {
+      display: none;
+    }
   }
 
-  &__title {
-    font-size: $font-size-large;
-    margin-bottom: math.div($font-size-large, 2);
-  }
+  &__nav {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: $background-color;
+    gap: 1rem;
+    padding: 1rem;
 
-  &__text {
-    font-size: $font-size-medium;
+    @include respond-to(md) {
+      display: flex;
+      flex-direction: row;
+      position: static;
+      gap: 2rem;
+      padding: 0;
+    }
+
+    &-item {
+      font-weight: 700;
+      font-size: 1.125rem;
+      color: $text-color;
+      text-transform: uppercase;
+      &:hover {
+        color: $emphasis-color;
+      }
+    }
   }
 }
