@@ -107,6 +107,7 @@ $breakpoints: (
     width: 100%;
     background-color: $background-color;
     gap: 1rem;
+    padding-bottom: 0.5rem;
 
     @include respond-to(md) {
       display: flex;
@@ -115,7 +116,7 @@ $breakpoints: (
       justify-content: flex-end;
       align-items: center;
       gap: 2rem;
-
+      padding-bottom: 0;
       width: auto;
     }
 
@@ -124,6 +125,10 @@ $breakpoints: (
       font-size: 1.125rem;
       color: $text-color;
       text-transform: uppercase;
+      padding-left: 0.5rem;
+      @include respond-to(md) {
+        padding-left: 0;
+      }
       &:hover {
         color: $emphasis-color;
       }
