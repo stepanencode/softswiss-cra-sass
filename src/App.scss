@@ -73,7 +73,7 @@ $breakpoints: (
     }
 
     &:checked ~ .header__nav {
-      display: flex;
+      @extend .header__nav--open;
     }
   }
 
@@ -107,9 +107,10 @@ $breakpoints: (
     background-color: $background-color;
     gap: 1rem;
     padding: 0.5rem;
-    // &--hidden {
-    //   display: none;
-    // }
+
+    &--open {
+      display: flex;
+    }
 
     @include respond-to(md) {
       display: flex;
@@ -120,10 +121,6 @@ $breakpoints: (
       gap: 2rem;
       width: auto;
       padding: 0;
-
-      // &--visible {
-      //   display: flex;
-      // }
     }
 
     &-item {

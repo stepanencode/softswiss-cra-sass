@@ -21,7 +21,7 @@ const App = () => {
           <span></span>
           <span></span>
         </label>
-        <nav className="header__nav header__nav--hidden">
+        <nav className="header__nav">
           <a href="#" className="header__nav-item">
             <span className="header__nav-text">Home</span>
           </a>
