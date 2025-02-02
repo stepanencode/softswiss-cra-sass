@@ -4,6 +4,16 @@ import './App.scss';
 import planetIcon from './assets/images/planet.svg';
 import cartIcon from './assets/images/cart.svg';
 
+import space1x from './assets/images/space-main@1x.png';
+import space2x from './assets/images/space-main@2x.png';
+import space3x from './assets/images/space-main@3x.png';
+import space4x from './assets/images/space-main@4x.png';
+
+import earth1x from './assets/images/earth@1x.png';
+import earth2x from './assets/images/earth@2x.png';
+import earth3x from './assets/images/earth@3x.png';
+import earth4x from './assets/images/earth@4x.png';
+
 const App = () => {
   return (
     <div className="app">
@@ -67,33 +77,32 @@ const App = () => {
           </div>
         </div>
       </header>
-      <section class="hero">
-        <div class="hero__background">
+      <section className="hero">
+        <div className="hero__background">
           <img
             alt="Space"
-            class="hero__background-image"
-            srcset="
-        space-main@1x.png 1x, 
-        space-main@2x.png 2x, 
-        space-main@3x.png 3x, 
-        space-main@4x.png 4x"
+            className="hero__background-image"
+            srcSet={`${space1x} 1x, ${space2x} 2x, ${space3x} 3x, ${space4x} 4x`}
             sizes="100vw"
             loading="lazy"
           />
         </div>
-        <div class="hero__content">
+        <div className="hero__content">
           <img
             alt="Earth"
-            class="hero__earth"
-            srcset="
-        earth@1x.png 1x, 
-        earth@2x.png 2x, 
-        earth@3x.png 3x, 
-        earth@4x.png 4x"
-            sizes="(max-width: 600px) 300px, 
-             (max-width: 1200px) 500px, 
-             700px"
+            className="hero__earth"
+            srcSet={`${earth1x} 1x, ${earth2x} 2x, ${earth3x} 3x, ${earth4x} 4x`}
+            sizes="(max-width: 600px) 300px, (max-width: 1200px) 500px, 700px"
           />
+          <div className="hero__text">
+            <h1 className="hero__title">
+              Discover the vast expanses of <span>space</span>
+            </h1>
+            <p className="hero__subtitle">
+              Where the possibilities are <span>endless!</span>
+            </p>
+            <button className="hero__button">Learn more</button>
+          </div>
         </div>
       </section>
     </div>
