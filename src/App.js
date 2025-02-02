@@ -96,10 +96,12 @@ const App = () => {
           />
           <div className="hero__text">
             <h1 className="hero__title">
-              Discover the vast expanses of <span>space</span>
+              Discover the vast expanses of{' '}
+              <strong className="hero__highlight">space</strong>
             </h1>
             <p className="hero__subtitle">
-              Where the possibilities are <span>endless!</span>
+              Where the possibilities are{' '}
+              <span className="hero__emphasis">endless!</span>
             </p>
             <button className="hero__button">Learn more</button>
           </div>

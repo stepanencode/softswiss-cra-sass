@@ -256,10 +256,10 @@ $breakpoints: (
     z-index: 10;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-end; /* Смещаем текст ниже */
     align-items: center;
     height: 100%;
-    padding: 20px;
+    padding: 40px 20px; /* Увеличиваем нижний отступ */
     text-align: center;
   }
 
@@ -282,28 +282,37 @@ $breakpoints: (
   }
 
   &__title {
-    font-size: clamp(24px, 5vw, 48px);
-    font-weight: bold;
+    font-size: 36px; /* Установленный размер текста */
+    font-weight: 800;
     margin-bottom: 10px;
+
+    .hero__highlight {
+      color: $space-color; /* Цвет слова "space" */
+    }
   }
 
   &__subtitle {
-    font-size: clamp(16px, 4vw, 24px);
+    font-size: 16px; /* Установленный размер текста */
+    font-weight: 800;
     margin-bottom: 20px;
+
+    .hero__emphasis {
+      color: $emphasis-color;
+    }
   }
 
   &__button {
-    padding: 10px 20px;
+    padding: 7px 40px;
     font-size: 16px;
-    color: #000;
-    background-color: #ff0;
+    color: $background-color;
+    background-color: $emphasis-color;
     border: none;
-    border-radius: 5px;
+    border-radius: 20px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: all 0.3s;
 
     &:hover {
-      background-color: #ffc107;
+      background-color: #ebff0099;
     }
   }
 }
