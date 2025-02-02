@@ -97,7 +97,7 @@ const App = () => {
           <div className="hero__text">
             <h1 className="hero__title">
               Discover the vast expanses of{' '}
-              <strong className="hero__highlight">space</strong>
+              <span className="hero__highlight">space</span>
             </h1>
             <p className="hero__subtitle">
               Where the possibilities are{' '}

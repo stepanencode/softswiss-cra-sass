@@ -316,3 +316,48 @@ $breakpoints: (
     }
   }
 }
+
+@media (min-width: 768px) {
+  .hero__content {
+    flex-direction: row-reverse; /* Меняем порядок: планета справа, текст слева */
+    justify-content: space-between; /* Раздвигаем элементы */
+    align-items: center;
+    // padding: 40px 50px; /* Добавляем отступы */
+    text-align: left; /* Текст выравнивается по левому краю */
+  }
+
+  .hero__text {
+    flex: 1;
+    max-width: 60%;
+  }
+
+  .hero__earth {
+    position: relative;
+    max-width: 40%;
+    top: 5%;
+    left: 15%;
+    transform: none;
+  }
+  .hero__title {
+    font-size: 48px;
+    font-weight: 800;
+    line-height: 1;
+  }
+
+  .hero__subtitle {
+    font-size: 22px;
+    font-weight: 800;
+  }
+
+  .hero__button {
+    align-self: flex-start;
+    padding: 15px 50px;
+    font-size: 18px;
+    border-radius: 30px;
+    transition: all 0.3s;
+
+    &:hover {
+      background-color: #ebff0099;
+    }
+  }
+}
