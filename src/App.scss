@@ -273,117 +273,54 @@ $space-images: (
       image-set($space-images) center / cover no-repeat;
   }
 
-  &__contant {
+  &__content {
     max-width: 1248px;
     width: 100%;
     margin: 0 auto;
     background-color: red;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+
+    @include respond-to(md) {
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      align-items: flex-start;
+      text-align: left;
+    }
+  }
+
+  &__title {
+    font-size: 36px;
+    font-weight: 800;
+    margin-bottom: 10px;
+  }
+
+  &__subtitle {
+    font-size: 16px;
+    font-weight: 800;
+    margin-bottom: 20px;
+  }
+
+  &__button {
+    padding: 7px 40px;
+    font-size: 16px;
+    color: $background-color;
+    background-color: $emphasis-color;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s;
+
+    // &:hover {
+    //   background-color: #ebff0099;
+    // }
   }
 }
-
-//   &__content {
-//     // position: absolute; /* Фиксируем контент внутри секции */
-//     // bottom: 0; /* Размещаем внизу */
-//     // left: 50%; /* Центрируем горизонтально */
-//     // transform: translateX(-50%); /* Исправляем смещение */
-//     // display: flex;
-//     // flex-direction: column;
-//     // justify-content: flex-end; /* Перемещаем текст вниз */
-//     // align-items: center;
-//     // height: 100%;
-//     // width: 100%;
-//     // padding: 40px 20px;
-//     // text-align: center;
-//     // max-width: 1248px;
-//     // margin: 0 auto;
-
-//     position: absolute; /* Фиксируем блок в секции */
-//     bottom: 0; /* Текст находится внизу */
-//     left: 50%; /* Центрируем по горизонтали */
-//     transform: translateX(-50%); /* Исправляем смещение */
-//     display: flex;
-//     flex-direction: column;
-//     justify-content: flex-end; /* Текст прижимается к низу */
-//     align-items: center;
-//     height: auto; /* Высота подстраивается под контент */
-//     width: 100%; /* Ширина по всей секции */
-//     padding: 20px 20px; /* Добавляем отступы */
-//     text-align: center;
-//     max-width: 1248px;
-//     margin: 0 auto;
-
-//     @include respond-to(md) {
-//       position: relative; /* Возвращаем обычное позиционирование */
-//       // flex-direction: row;
-//       // justify-content: flex-start;
-//       // align-items: center;
-//       // // padding: 60px 50px;
-//       // text-align: left;
-//       // transform: none;
-//       // left: auto;
-
-//       flex-direction: row; /* Планета справа, текст слева */
-//       justify-content: flex-start; /* Текст выравнивается слева */
-//       align-items: center; /* Текст выравнивается по высоте планеты */
-//       text-align: left;
-//       padding: 0 50px; /* Уменьшаем верхний и нижний отступы */
-//       height: auto; /* Высота подстраивается под контент */
-//     }
-//   }
-
-//   &__text {
-//     flex: 1;
-//     max-width: 60%;
-
-//     @include respond-to(md) {
-//       flex: 1;
-//       max-width: 60%;
-//       margin-left: 0;
-//       line-height: 1;
-//     }
-//   }
-
-//   &__title {
-//     color: $text-color;
-//     font-size: 36px;
-//     font-weight: 800;
-//     margin-bottom: 10px;
-//     @include respond-to(md) {
-//       font-size: 48px;
-//     }
-
-//     .hero__highlight {
-//       color: $space-color;
-//     }
-//   }
-
-//   &__subtitle {
-//     font-size: 16px;
-//     font-weight: 800;
-//     margin-bottom: 20px;
-
-//     @include respond-to(md) {
-//       font-size: 22px;
-//     }
-
-//     .hero__emphasis {
-//       color: $emphasis-color;
-//     }
-//   }
-
-//   &__button {
-//     padding: 7px 40px;
-//     align-self: flex-start;
-//     font-size: 16px;
-//     color: $background-color;
-//     background-color: $emphasis-color;
-//     border: none;
-//     border-radius: 20px;
-//     cursor: pointer;
-//     transition: all 0.3s;
-
-//     &:hover {
-//       background-color: #ebff0099;
-//     }
-//   }
-// }

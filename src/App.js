@@ -78,7 +78,7 @@ const App = () => {
         </div>
       </header>
       <section className="hero">
-        <div className="hero__contant">
+        <div className="hero__content">
           <h1 className="hero__title">
             Discover the vast expanses of{' '}
             <span className="hero__highlight">space</span>
