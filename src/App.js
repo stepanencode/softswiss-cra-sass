@@ -19,16 +19,20 @@ const App = () => {
             <span></span>
             <span></span>
           </label>
-          <nav className="header__nav">
-            <a href="#" className="header__nav-item">
-              <span className="header__nav-text">Home</span>
+          <nav className="navigation">
+            <a href="#" className="navigation__item">
+              <span className="navigation__text">Home</span>
             </a>
-            <a href="#" className="header__nav-item">
-              <span className="header__nav-text">Products</span>
+            <a href="#" className="navigation__item">
+              <span className="navigation__text">Products</span>
             </a>
-            <a href="#" className="header__nav-item header__cart">
-              <span className="header__cart-text">Cart</span>
-              <img src={cartIcon} alt="Cart" className="header__cart-icon" />
+            <a href="#" className="navigation__item navigation__cart">
+              <span className="navigation__cart-text">Cart</span>
+              <img
+                src={cartIcon}
+                alt="Cart"
+                className="navigation__cart-icon"
+              />
             </a>
           </nav>
         </div>
