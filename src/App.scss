@@ -24,6 +24,20 @@ $breakpoints: (
   lg: 1248px,
 );
 
+$earth-images: (
+  url('./assets/images/earth@1x.png') 1x,
+  url('./assets/images/earth@2x.png') 2x,
+  url('./assets/images/earth@3x.png') 3x,
+  url('./assets/images/earth@4x.png') 4x
+);
+
+$space-images: (
+  url('./assets/images/space-main@1x.png') 1x,
+  url('./assets/images/space-main@2x.png') 2x,
+  url('./assets/images/space-main@3x.png') 3x,
+  url('./assets/images/space-main@4x.png') 4x
+);
+
 @mixin flex-center($direction: row) {
   display: flex;
   justify-content: center;
@@ -246,90 +260,130 @@ $breakpoints: (
   width: 100%;
   height: 100vh;
   overflow: hidden;
-  background: image-set(
-        url('./assets/images/earth@1x.png') 1x,
-        url('./assets/images/earth@2x.png') 2x,
-        url('./assets/images/earth@3x.png') 3x,
-        url('./assets/images/earth@4x.png') 4x
-      )
-      center/contain no-repeat,
-    image-set(
-        url('./assets/images/space-main@1x.png') 1x,
-        url('./assets/images/space-main@2x.png') 2x,
-        url('./assets/images/space-main@3x.png') 3x,
-        url('./assets/images/space-main@4x.png') 4x
-      )
-      center/cover no-repeat;
+  background: image-set($earth-images) center -35% / 300px no-repeat,
+    image-set($space-images) center / cover no-repeat;
   background-attachment: fixed;
 
-  &__content {
-    position: relative;
-    z-index: 10;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: center;
-    height: 100%;
-    padding: 40px 20px;
-    text-align: center;
+  @include respond-to(md) {
+    background: image-set($earth-images) 115% center/ 350px no-repeat,
+      image-set($space-images) center / cover no-repeat;
+  }
+  @include respond-to(lg) {
+    background: image-set($earth-images) 95% center / 350px no-repeat,
+      image-set($space-images) center / cover no-repeat;
+  }
+
+  &__container {
     max-width: 1248px;
     width: 100%;
     margin: 0 auto;
-
-    @include respond-to(md) {
-      flex-direction: row-reverse;
-      justify-content: space-between;
-      align-items: center;
-      text-align: left;
-      padding: 40px 50px;
-    }
-  }
-
-  &__text {
-    flex: 1;
-    max-width: 60%;
-  }
-
-  &__title {
-    font-size: 36px;
-    font-weight: 800;
-    margin-bottom: 10px;
-    @include respond-to(md) {
-      font-size: 48px;
-    }
-
-    .hero__highlight {
-      color: $space-color;
-    }
-  }
-
-  &__subtitle {
-    font-size: 16px;
-    font-weight: 800;
-    margin-bottom: 20px;
-
-    @include respond-to(md) {
-      font-size: 22px;
-    }
-
-    .hero__emphasis {
-      color: $emphasis-color;
-    }
-  }
-
-  &__button {
-    padding: 7px 40px;
-    align-self: flex-start;
-    font-size: 16px;
-    color: $background-color;
-    background-color: $emphasis-color;
-    border: none;
-    border-radius: 20px;
-    cursor: pointer;
-    transition: all 0.3s;
-
-    &:hover {
-      background-color: #ebff0099;
-    }
+    background-color: red;
   }
 }
+
+//   &__content {
+//     // position: absolute; /* Фиксируем контент внутри секции */
+//     // bottom: 0; /* Размещаем внизу */
+//     // left: 50%; /* Центрируем горизонтально */
+//     // transform: translateX(-50%); /* Исправляем смещение */
+//     // display: flex;
+//     // flex-direction: column;
+//     // justify-content: flex-end; /* Перемещаем текст вниз */
+//     // align-items: center;
+//     // height: 100%;
+//     // width: 100%;
+//     // padding: 40px 20px;
+//     // text-align: center;
+//     // max-width: 1248px;
+//     // margin: 0 auto;
+
+//     position: absolute; /* Фиксируем блок в секции */
+//     bottom: 0; /* Текст находится внизу */
+//     left: 50%; /* Центрируем по горизонтали */
+//     transform: translateX(-50%); /* Исправляем смещение */
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: flex-end; /* Текст прижимается к низу */
+//     align-items: center;
+//     height: auto; /* Высота подстраивается под контент */
+//     width: 100%; /* Ширина по всей секции */
+//     padding: 20px 20px; /* Добавляем отступы */
+//     text-align: center;
+//     max-width: 1248px;
+//     margin: 0 auto;
+
+//     @include respond-to(md) {
+//       position: relative; /* Возвращаем обычное позиционирование */
+//       // flex-direction: row;
+//       // justify-content: flex-start;
+//       // align-items: center;
+//       // // padding: 60px 50px;
+//       // text-align: left;
+//       // transform: none;
+//       // left: auto;
+
+//       flex-direction: row; /* Планета справа, текст слева */
+//       justify-content: flex-start; /* Текст выравнивается слева */
+//       align-items: center; /* Текст выравнивается по высоте планеты */
+//       text-align: left;
+//       padding: 0 50px; /* Уменьшаем верхний и нижний отступы */
+//       height: auto; /* Высота подстраивается под контент */
+//     }
+//   }
+
+//   &__text {
+//     flex: 1;
+//     max-width: 60%;
+
+//     @include respond-to(md) {
+//       flex: 1;
+//       max-width: 60%;
+//       margin-left: 0;
+//       line-height: 1;
+//     }
+//   }
+
+//   &__title {
+//     color: $text-color;
+//     font-size: 36px;
+//     font-weight: 800;
+//     margin-bottom: 10px;
+//     @include respond-to(md) {
+//       font-size: 48px;
+//     }
+
+//     .hero__highlight {
+//       color: $space-color;
+//     }
+//   }
+
+//   &__subtitle {
+//     font-size: 16px;
+//     font-weight: 800;
+//     margin-bottom: 20px;
+
+//     @include respond-to(md) {
+//       font-size: 22px;
+//     }
+
+//     .hero__emphasis {
+//       color: $emphasis-color;
+//     }
+//   }
+
+//   &__button {
+//     padding: 7px 40px;
+//     align-self: flex-start;
+//     font-size: 16px;
+//     color: $background-color;
+//     background-color: $emphasis-color;
+//     border: none;
+//     border-radius: 20px;
+//     cursor: pointer;
+//     transition: all 0.3s;
+
+//     &:hover {
+//       background-color: #ebff0099;
+//     }
+//   }
+// }
