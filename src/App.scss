@@ -261,23 +261,23 @@ $space-images: (
   height: 100vh;
   overflow: hidden;
   background: image-set($earth-images) center -35% / 300px no-repeat,
-    image-set($space-images) center / cover no-repeat;
+    image-set($space-images) center / cover no-repeat, $highlight-color;
   background-attachment: fixed;
 
   @include respond-to(md) {
     background: image-set($earth-images) 115% center/ 350px no-repeat,
-      image-set($space-images) center / cover no-repeat;
+      image-set($space-images) center / cover no-repeat, $highlight-color;
   }
   @include respond-to(lg) {
     background: image-set($earth-images) 95% center / 350px no-repeat,
-      image-set($space-images) center / cover no-repeat;
+      image-set($space-images) center / cover no-repeat, $highlight-color;
   }
 
   &__content {
     max-width: 1248px;
     width: 100%;
     margin: 0 auto;
-    background-color: red;
+    // background-color: red;
     position: absolute;
     bottom: 0;
     left: 50%;
