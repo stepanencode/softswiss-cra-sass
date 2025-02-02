@@ -363,3 +363,13 @@ $breakpoints: (
     }
   }
 }
+
+@media (min-width: 1248px) {
+  .hero__earth {
+    position: relative;
+    max-width: 40%;
+    top: 5%;
+    left: auto;
+    transform: none;
+  }
+}
