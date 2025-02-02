@@ -78,20 +78,16 @@ const App = () => {
         </div>
       </header>
       <section className="hero">
-        <div className="hero__container">
-          <div className="hero__content">
-            <div className="hero__text">
-              <h1 className="hero__title">
-                Discover the vast expanses of{' '}
-                <span className="hero__highlight">space</span>
-              </h1>
-              <p className="hero__subtitle">
-                Where the possibilities are{' '}
-                <span className="hero__emphasis">endless!</span>
-              </p>
-              <button className="hero__button">Learn more</button>
-            </div>
-          </div>
+        <div className="hero__contant">
+          <h1 className="hero__title">
+            Discover the vast expanses of{' '}
+            <span className="hero__highlight">space</span>
+          </h1>
+          <p className="hero__subtitle">
+            Where the possibilities are{' '}
+            <span className="hero__emphasis">endless!</span>
+          </p>
+          <button className="hero__button">Learn more</button>
         </div>
       </section>
     </div>
