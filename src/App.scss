@@ -256,11 +256,14 @@ $breakpoints: (
     z-index: 10;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end; /* Смещаем текст ниже */
+    justify-content: flex-end;
     align-items: center;
     height: 100%;
-    padding: 40px 20px; /* Увеличиваем нижний отступ */
+    padding: 40px 20px;
     text-align: center;
+    max-width: 1248px;
+    width: 100%;
+    margin: 0 auto;
   }
 
   &__earth {
@@ -282,17 +285,17 @@ $breakpoints: (
   }
 
   &__title {
-    font-size: 36px; /* Установленный размер текста */
+    font-size: 36px;
     font-weight: 800;
     margin-bottom: 10px;
 
     .hero__highlight {
-      color: $space-color; /* Цвет слова "space" */
+      color: $space-color;
     }
   }
 
   &__subtitle {
-    font-size: 16px; /* Установленный размер текста */
+    font-size: 16px;
     font-weight: 800;
     margin-bottom: 20px;
 
@@ -319,11 +322,10 @@ $breakpoints: (
 
 @media (min-width: 768px) {
   .hero__content {
-    flex-direction: row-reverse; /* Меняем порядок: планета справа, текст слева */
-    justify-content: space-between; /* Раздвигаем элементы */
+    flex-direction: row-reverse;
+    justify-content: space-between;
     align-items: center;
-    // padding: 40px 50px; /* Добавляем отступы */
-    text-align: left; /* Текст выравнивается по левому краю */
+    text-align: left;
   }
 
   .hero__text {
