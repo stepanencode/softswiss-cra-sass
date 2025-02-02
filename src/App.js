@@ -67,6 +67,35 @@ const App = () => {
           </div>
         </div>
       </header>
+      <section class="hero">
+        <div class="hero__background">
+          <img
+            alt="Space"
+            class="hero__background-image"
+            srcset="
+        space-main@1x.png 1x, 
+        space-main@2x.png 2x, 
+        space-main@3x.png 3x, 
+        space-main@4x.png 4x"
+            sizes="100vw"
+            loading="lazy"
+          />
+        </div>
+        <div class="hero__content">
+          <img
+            alt="Earth"
+            class="hero__earth"
+            srcset="
+        earth@1x.png 1x, 
+        earth@2x.png 2x, 
+        earth@3x.png 3x, 
+        earth@4x.png 4x"
+            sizes="(max-width: 600px) 300px, 
+             (max-width: 1200px) 500px, 
+             700px"
+          />
+        </div>
+      </section>
     </div>
   );
 };
