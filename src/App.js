@@ -39,12 +39,12 @@ const App = () => {
             >
               <ul className="navigation__list" role="menu">
                 <li className="navigation__item" role="menuitem">
-                  <a href="#" className="navigation__item-link">
+                  <a href="#" className="navigation__item-link" tabIndex={0}>
                     <span className="navigation__text">Home</span>
                   </a>
                 </li>
                 <li className="navigation__item" role="menuitem">
-                  <a href="#" className="navigation__item-link">
+                  <a href="#" className="navigation__item-link" tabIndex={0}>
                     <span className="navigation__text">Products</span>
                   </a>
                 </li>
@@ -52,7 +52,7 @@ const App = () => {
                   className="navigation__item navigation__cart"
                   role="menuitem"
                 >
-                  <a href="#" className="navigation__cart-link" tabindex="0">
+                  <a href="#" className="navigation__cart-link" tabIndex={0}>
                     <span className="navigation__cart-text">Cart</span>
                     <div className="navigation__cart-icon"></div>
                   </a>
