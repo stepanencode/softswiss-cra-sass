@@ -274,11 +274,8 @@ $space-images: (
   }
 
   &__content {
-    max-width: 1248px;
-    width: 100%;
-    margin: 0 auto;
-    // background-color: red;
     position: absolute;
+    width: 100%;
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
@@ -286,9 +283,10 @@ $space-images: (
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding: 20px;
+    padding: 50px;
 
     @include respond-to(md) {
+      width: 60%;
       top: 50%;
       left: 0;
       transform: translateY(-50%);
@@ -298,29 +296,39 @@ $space-images: (
   }
 
   &__title {
-    font-size: 36px;
+    font-size: 2.25rem;
     font-weight: 800;
+    line-height: 1;
     margin-bottom: 10px;
+    color: $text-color;
   }
 
   &__subtitle {
-    font-size: 16px;
     font-weight: 800;
     margin-bottom: 20px;
+    color: $text-color;
+  }
+
+  &__highlight {
+    color: $space-color;
+  }
+
+  &__emphasis {
+    color: $emphasis-color;
   }
 
   &__button {
     padding: 7px 40px;
-    font-size: 16px;
     color: $background-color;
     background-color: $emphasis-color;
-    border: none;
+    border: 1px solid $emphasis-color;
     border-radius: 20px;
     cursor: pointer;
     transition: all 0.3s;
 
-    // &:hover {
-    //   background-color: #ebff0099;
-    // }
+    &:hover {
+      border: 1px solid #ebff0099;
+      background-color: #ebff0099;
+    }
   }
 }

@@ -81,7 +81,7 @@ const App = () => {
         <div className="hero__content">
           <h1 className="hero__title">
             Discover the vast expanses of{' '}
-            <span className="hero__highlight">space</span>
+            <strong className="hero__highlight">space</strong>
           </h1>
           <p className="hero__subtitle">
             Where the possibilities are{' '}
