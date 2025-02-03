@@ -4,6 +4,7 @@ $space-color: #ff70d9;
 $emphasis-color: #f4ff4b;
 $highlight-color: #1d2c5e;
 $text-color: white;
+$journey-text: #bcbcbc;
 $background-color: black;
 $font-size-large: 2.5rem;
 $font-size-medium: 1.2rem;
@@ -571,7 +572,7 @@ $space-images: (
   &__text {
     font-size: 0.875rem;
     line-height: 1.5;
-    color: $text-color;
+    color: $journey-text;
 
     @include respond-to(md) {
       font-size: 1rem;
@@ -602,5 +603,29 @@ $space-images: (
     @include respond-to(lg) {
       font-size: 1.25rem;
     }
+  }
+}
+
+.footer {
+  background-color: $background-color;
+  text-align: center;
+  padding-bottom: 20px;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__rocket {
+    width: 152px;
+    height: 178px;
+    // transform: rotate(-45deg);
+  }
+
+  &__text {
+    font-size: 1.125rem;
+    color: $emphasis-color;
   }
 }

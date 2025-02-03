@@ -2,6 +2,7 @@
 import React from 'react';
 import './App.scss';
 import planetIcon from './assets/images/planet.svg';
+import rocketIcon from './assets/images/rocket.svg';
 
 const App = () => {
   return (
@@ -156,6 +157,12 @@ const App = () => {
           </div>
         </div>
       </section>
+      <footer class="footer">
+        <div class="footer__content">
+          <img src={rocketIcon} alt="Rocket" class="footer__rocket" />
+          <p class="footer__text">Exciting space adventure!</p>
+        </div>
+      </footer>
     </div>
   );
 };
