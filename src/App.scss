@@ -396,11 +396,19 @@ $space-images: (
   }
 }
 
+.container {
+  max-width: 1248px;
+  margin: 0 auto;
+  padding: 0 50px;
+}
+
 .offers {
-  padding: 2rem;
+  padding: 2.5rem 0;
   background-color: $highlight-color;
 
   &__title {
+    // max-width: 1248px;
+    // margin: 0 auto;
     font-size: 1.125rem;
     font-weight: 700;
     margin-bottom: 1.5rem;
@@ -533,6 +541,72 @@ $space-images: (
         border: 1px solid #ebff0099;
         color: #ebff0099;
       }
+    }
+  }
+}
+
+.journey {
+  padding: 2rem 0; // Общий отступ секции
+  // margin-top: 2rem;
+  background-color: $highlight-color; // Цвет фона
+  // border-radius: 1rem;
+
+  &__content {
+    max-width: 1248px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    text-align: left;
+  }
+
+  &__title {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: $text-color;
+
+    @include respond-to(md) {
+      font-size: 1.5rem;
+    }
+
+    @include respond-to(lg) {
+      font-size: 2rem;
+    }
+  }
+
+  &__text {
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: $text-color;
+
+    @include respond-to(md) {
+      font-size: 1rem;
+    }
+
+    @include respond-to(lg) {
+      font-size: 1.25rem;
+    }
+  }
+
+  &__link {
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: $emphasis-color;
+    text-decoration: none;
+    // border-bottom: 1px solid transparent;
+    transition: color 0.3s ease;
+
+    &:hover,
+    &:focus {
+      color: lighten($emphasis-color, 10%);
+    }
+
+    @include respond-to(md) {
+      font-size: 1rem;
+    }
+
+    @include respond-to(lg) {
+      font-size: 1.25rem;
     }
   }
 }
