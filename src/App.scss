@@ -1,13 +1,3 @@
-// import space1x from './assets/images/space-main@1x.png';
-// import space2x from './assets/images/space-main@2x.png';
-// import space3x from './assets/images/space-main@3x.png';
-// import space4x from './assets/images/space-main@4x.png';
-
-// import earth1x from './assets/images/earth@1x.png';
-// import earth2x from './assets/images/earth@2x.png';
-// import earth3x from './assets/images/earth@3x.png';
-// import earth4x from './assets/images/earth@4x.png';
-
 @use 'sass:math';
 
 $space-color: #ff70d9;
@@ -208,14 +198,19 @@ $space-images: (
       padding-left: 0;
     }
 
-    &:hover {
-      color: $emphasis-color;
-    }
-
+    &:hover,
     &:active,
     &:focus-within,
     &--active {
-      color: $emphasis-color;
+      background: linear-gradient(
+        140.47deg,
+        rgba(255, 112, 217, 0.8) 26.02%,
+        rgba(235, 255, 0, 0.8) 90.57%
+      );
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
     }
   }
 
@@ -235,18 +230,30 @@ $space-images: (
       display: none;
       width: 24px;
       height: 24px;
-      transition: filter 0.3s ease;
 
       @include respond-to(md) {
         display: block;
       }
+
+      background: $text-color;
+      mask-image: url('./assets/images/cart.svg');
+      -webkit-mask-image: url('./assets/images/cart.svg');
+      mask-size: contain;
+      -webkit-mask-size: contain;
+      mask-repeat: no-repeat;
+      -webkit-mask-repeat: no-repeat;
+      mask-position: center;
+      -webkit-mask-position: center;
     }
 
     &:active .navigation__cart-icon,
     &:focus-within .navigation__cart-icon,
     &--active .navigation__cart-icon {
-      filter: brightness(0) saturate(100%) invert(88%) sepia(65%) saturate(361%)
-        hue-rotate(9deg) brightness(107%) contrast(103%);
+      background: linear-gradient(
+        140.47deg,
+        rgba(255, 112, 217, 0.8) 26.02%,
+        rgba(235, 255, 0, 0.8) 90.57%
+      );
     }
   }
 }

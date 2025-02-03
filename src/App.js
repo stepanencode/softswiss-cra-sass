@@ -2,17 +2,6 @@
 import React from 'react';
 import './App.scss';
 import planetIcon from './assets/images/planet.svg';
-import cartIcon from './assets/images/cart.svg';
-
-// import space1x from './assets/images/space-main@1x.png';
-// import space2x from './assets/images/space-main@2x.png';
-// import space3x from './assets/images/space-main@3x.png';
-// import space4x from './assets/images/space-main@4x.png';
-
-// import earth1x from './assets/images/earth@1x.png';
-// import earth2x from './assets/images/earth@2x.png';
-// import earth3x from './assets/images/earth@3x.png';
-// import earth4x from './assets/images/earth@4x.png';
 
 const App = () => {
   return (
@@ -65,11 +54,7 @@ const App = () => {
                 >
                   <a href="#" className="navigation__cart-link">
                     <span className="navigation__cart-text">Cart</span>
-                    <img
-                      src={cartIcon}
-                      alt="Cart"
-                      className="navigation__cart-icon"
-                    />
+                    <div className="navigation__cart-icon"></div>
                   </a>
                 </li>
               </ul>
