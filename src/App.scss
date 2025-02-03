@@ -426,8 +426,19 @@ $space-images: (
     }
 
     @include respond-to(lg) {
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: 1fr 1fr;
+
+      & > li:nth-child(3n + 1) {
+        grid-column: span 2;
+      }
+      & > li {
+        grid-column: span 1;
+      }
     }
+
+    // @include respond-to(lg) {
+    //   grid-template-columns: repeat(3, 1fr);
+    // }
   }
 
   &__item {
@@ -445,7 +456,7 @@ $space-images: (
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
-    height: 100%; // Убедимся, что карточка занимает всю высоту
+    height: 100%;
 
     &:nth-child(2) {
       background: image-set(
@@ -481,18 +492,25 @@ $space-images: (
   &__article {
     display: flex;
     flex-direction: column;
-    justify-content: space-between; // Разделяем текст и кнопку
-    height: 100%; // Контейнер занимает всю высоту карточки
+    justify-content: space-between;
+    height: 100%;
   }
 
   &__item-title {
     font-size: 1.5rem;
     font-weight: 700;
     margin-bottom: 1rem;
+
+    @include respond-to(md) {
+      font-size: 2.5rem;
+    }
+    @include respond-to(lg) {
+      font-size: 4.625rem;
+    }
   }
 
   &__text-container {
-    margin-bottom: auto; // Текст остаётся сверху
+    margin-bottom: auto;
   }
 
   &__item-text {
@@ -503,14 +521,12 @@ $space-images: (
   &__item-button {
     align-self: flex-start;
     padding: 7px 40px;
-    // background-color: $emphasis-color;
-    background-color: transparent; /* Прозрачный фон */
-    color: $emphasis-color; /* Цвет текста */
-    border: 1px solid $emphasis-color; /* Обводка цвета акцента */
+    background-color: transparent;
+    color: $emphasis-color;
+    border: 1px solid $emphasis-color;
     border-radius: 20px;
     cursor: pointer;
     font-weight: 700;
-    // transition: background-color 0.3s ease;
 
     &:hover {
       &:hover {
