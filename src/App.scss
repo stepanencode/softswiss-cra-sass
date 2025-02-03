@@ -395,3 +395,102 @@ $space-images: (
     }
   }
 }
+
+.offers {
+  padding: 2rem;
+  background-color: $background-color; // Основной фон секции
+
+  &__title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    color: $text-color;
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+
+    @include respond-to(md) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include respond-to(lg) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  &__item {
+    position: relative;
+    padding: 2rem;
+    background: image-set(
+        url('./assets/images/item1@1x.png') 1x,
+        url('./assets/images/item1@2x.png') 2x,
+        url('./assets/images/item1@3x.png') 3x,
+        url('./assets/images/item1@4x.png') 4x
+      )
+      center / cover no-repeat;
+    border-radius: 1rem;
+    color: $text-color-light;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+    &:nth-child(2) {
+      background: image-set(
+          url('./assets/images/item2@1x.png') 1x,
+          url('./assets/images/item2@2x.png') 2x,
+          url('./assets/images/item2@3x.png') 3x,
+          url('./assets/images/item2@4x.png') 4x
+        )
+        center / cover no-repeat;
+    }
+
+    &:nth-child(3) {
+      background: image-set(
+          url('./assets/images/item3@1x.png') 1x,
+          url('./assets/images/item3@2x.png') 2x,
+          url('./assets/images/item3@3x.png') 3x,
+          url('./assets/images/item3@4x.png') 4x
+        )
+        center / cover no-repeat;
+    }
+
+    &:nth-child(4) {
+      background: image-set(
+          url('./assets/images/item4@1x.png') 1x,
+          url('./assets/images/item4@2x.png') 2x,
+          url('./assets/images/item4@3x.png') 3x,
+          url('./assets/images/item4@4x.png') 4x
+        )
+        center / cover no-repeat;
+    }
+  }
+
+  &__item-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+
+  &__item-text {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  &__item-button {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: $emphasis-color;
+    color: $background-color;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-weight: 700;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: lighten($emphasis-color, 10%);
+    }
+  }
+}
