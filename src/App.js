@@ -75,76 +75,52 @@ const App = () => {
           <button className="hero__button">Learn more</button>
         </div>
       </section>
-      {/* <section class="offers">
-        <h2 class="offers__title">Offers</h2>
-        <div class="offers__list">
-          <article class="offers__item">
-            <h3 class="offers__item-title">Move the borders of reality!</h3>
-            <p class="offers__item-text">
-              Go on a space adventure - it’s possible with us!
-            </p>
-            <button class="offers__item-button">Learn more</button>
-          </article>
-          <article class="offers__item">
-            <h3 class="offers__item-title">
-              Space is not just stars and planets
-            </h3>
-            <p class="offers__item-text">
-              It is a majestic journey to explore.
-            </p>
-            <button class="offers__item-button">Learn more</button>
-          </article>
-          <article class="offers__item">
-            <h3 class="offers__item-title">For those who dream of stars</h3>
-            <p class="offers__item-text">
-              Our offer: make your dream come true.
-            </p>
-            <button class="offers__item-button">Learn more</button>
-          </article>
-          <article class="offers__item">
-            <h3 class="offers__item-title">Fulfill your fantastic dreams</h3>
-            <p class="offers__item-text">Space has never been so close.</p>
-            <button class="offers__item-button">Learn more</button>
-          </article>
-        </div>
-      </section> */}
-
       <section class="offers">
         <h2 class="offers__title">Offers</h2>
         <ul class="offers__list">
           <li class="offers__item">
             <article class="offers__article">
-              <h3 class="offers__item-title">Move the borders of reality!</h3>
-              <p class="offers__item-text">
-                Go on a space adventure - it’s possible with us!
-              </p>
+              <div className="offers__text-container">
+                <h3 class="offers__item-title">Move the borders of reality!</h3>
+                <p class="offers__item-text">
+                  Go on a space adventure - it’s possible with us!
+                </p>
+              </div>
               <button class="offers__item-button">Learn more</button>
             </article>
           </li>
           <li class="offers__item">
             <article class="offers__article">
-              <h3 class="offers__item-title">
-                Space is not just stars and planets
-              </h3>
-              <p class="offers__item-text">
-                It is a majestic journey to explore.
-              </p>
+              <div className="offers__text-container">
+                <h3 class="offers__item-title">
+                  Space is not just stars and planets
+                </h3>
+                <p class="offers__item-text">
+                  It is a majestic journey to explore.
+                </p>
+              </div>
               <button class="offers__item-button">Learn more</button>
             </article>
           </li>
           <li class="offers__item">
             <article class="offers__article">
-              <h3 class="offers__item-title">For those who dream of stars</h3>
-              <p class="offers__item-text">
-                Our offer: make your dream come true.
-              </p>
+              <div className="offers__text-container">
+                <h3 class="offers__item-title">For those who dream of stars</h3>
+                <p class="offers__item-text">
+                  Our offer: make your dream come true.
+                </p>
+              </div>
               <button class="offers__item-button">Learn more</button>
             </article>
           </li>
           <li class="offers__item">
             <article class="offers__article">
-              <h3 class="offers__item-title">Fulfill your fantastic dreams</h3>
-              <p class="offers__item-text">Space has never been so close.</p>
+              <div className="offers__text-container">
+                <h3 class="offers__item-title">
+                  Fulfill your fantastic dreams
+                </h3>
+                <p class="offers__item-text">Space has never been so close.</p>
+              </div>
               <button class="offers__item-button">Learn more</button>
             </article>
           </li>
