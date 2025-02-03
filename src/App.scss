@@ -407,8 +407,6 @@ $space-images: (
   background-color: $highlight-color;
 
   &__title {
-    // max-width: 1248px;
-    // margin: 0 auto;
     font-size: 1.125rem;
     font-weight: 700;
     margin-bottom: 1.5rem;
@@ -443,10 +441,6 @@ $space-images: (
         grid-column: span 1;
       }
     }
-
-    // @include respond-to(lg) {
-    //   grid-template-columns: repeat(3, 1fr);
-    // }
   }
 
   &__item {
@@ -546,7 +540,7 @@ $space-images: (
 }
 
 .journey {
-  padding: 2rem 0; // Общий отступ секции
+  padding-bottom: 2rem; // Общий отступ секции
   // margin-top: 2rem;
   background-color: $highlight-color; // Цвет фона
   // border-radius: 1rem;
