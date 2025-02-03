@@ -52,7 +52,7 @@ const App = () => {
                   className="navigation__item navigation__cart"
                   role="menuitem"
                 >
-                  <a href="#" className="navigation__cart-link">
+                  <a href="#" className="navigation__cart-link" tabindex="0">
                     <span className="navigation__cart-text">Cart</span>
                     <div className="navigation__cart-icon"></div>
                   </a>

@@ -194,23 +194,28 @@ $space-images: (
     cursor: pointer;
     -webkit-tap-highlight-color: transparent;
 
-    @include respond-to(md) {
-      padding-left: 0;
+    a {
+      text-decoration: none;
+      color: inherit; // Наследует цвет от родителя
+      background: none; // Убираем фон по умолчанию
     }
 
     &:hover,
-    &:active,
     &:focus-within,
-    &--active {
+    &:active {
       background: linear-gradient(
         140.47deg,
         rgba(255, 112, 217, 0.8) 26.02%,
         rgba(235, 255, 0, 0.8) 90.57%
       );
       -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
       background-clip: text;
+      color: transparent; // Делаем цвет текста прозрачным
       transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+    }
+
+    @include respond-to(md) {
+      padding-left: 0;
     }
   }
 
@@ -244,17 +249,71 @@ $space-images: (
       -webkit-mask-repeat: no-repeat;
       mask-position: center;
       -webkit-mask-position: center;
+
+      .navigation__cart-link:hover &,
+      .navigation__cart-link:focus & {
+        background: linear-gradient(
+          140.47deg,
+          rgba(255, 112, 217, 0.8) 26.02%,
+          rgba(235, 255, 0, 0.8) 90.57%
+        );
+      }
+
+      .navigation__cart-link:focus-within &,
+      .navigation__cart-link:active & {
+        background: linear-gradient(
+          140.47deg,
+          rgba(255, 112, 217, 1) 26.02%,
+          rgba(235, 255, 0, 1) 90.57%
+        );
+      }
+
+      // .navigation__cart-link:hover & {
+      //   background: linear-gradient(
+      //     140.47deg,
+      //     rgba(255, 112, 217, 0.8) 26.02%,
+      //     rgba(235, 255, 0, 0.8) 90.57%
+      //   );
+      // }
+
+      // /* Градиент при клике */
+      // .navigation__cart-link:focus-within & {
+      //   background: linear-gradient(
+      //     140.47deg,
+      //     rgba(255, 112, 217, 1) 26.02%,
+      //     rgba(235, 255, 0, 1) 90.57%
+      //   );
+      // }
+
+      // /* Градиент на hover */
+      // &:hover,
+      // &:focus-within {
+      //   background: linear-gradient(
+      //     140.47deg,
+      //     rgba(255, 112, 217, 0.8) 26.02%,
+      //     rgba(235, 255, 0, 0.8) 90.57%
+      //   );
+      // }
+
+      // /* Градиент на active */
+      // &:active {
+      //   background: linear-gradient(
+      //     140.47deg,
+      //     rgba(255, 112, 217, 1) 26.02%,
+      //     rgba(235, 255, 0, 1) 90.57%
+      //   );
+      // }
     }
 
-    &:active .navigation__cart-icon,
-    &:focus-within .navigation__cart-icon,
-    &--active .navigation__cart-icon {
-      background: linear-gradient(
-        140.47deg,
-        rgba(255, 112, 217, 0.8) 26.02%,
-        rgba(235, 255, 0, 0.8) 90.57%
-      );
-    }
+    // &:active .navigation__cart-icon,
+    // &:focus-within .navigation__cart-icon,
+    // &--active .navigation__cart-icon {
+    //   background: linear-gradient(
+    //     140.47deg,
+    //     rgba(255, 112, 217, 0.8) 26.02%,
+    //     rgba(235, 255, 0, 0.8) 90.57%
+    //   );
+    // }
   }
 }
 
