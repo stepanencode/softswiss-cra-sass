@@ -53,9 +53,9 @@ $dreams-images: (
   url('./assets/images/dreams@4x.png') 4x
 );
 
-@mixin flex-center($direction: row) {
+@mixin flex-center($direction: row, $justify-content: center) {
   display: flex;
-  justify-content: center;
+  justify-content: $justify-content;
   align-items: center;
   flex-direction: $direction;
 }
@@ -102,12 +102,10 @@ $dreams-images: (
 
   &__container {
     position: relative;
-    display: flex;
     width: 100%;
     max-width: 1248px;
     margin: 0 auto;
-    justify-content: space-between;
-    align-items: center;
+    @include flex-center(row, space-between);
 
     @include responsive-padding(0.5rem, 2vw, 1rem);
 
@@ -121,7 +119,7 @@ $dreams-images: (
   }
 
   &__logo {
-    @include flex-center(row);
+    @include flex-center(row, center);
 
     &-icon {
       width: 24px;
