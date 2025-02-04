@@ -177,10 +177,10 @@ $dreams-images: (
   &__item {
     display: flex;
     width: fit-content;
+    padding-left: 0.5rem;
     font-size: 1.125rem;
     font-weight: 700;
     color: $text-color;
-    padding-left: 0.5rem;
     text-transform: uppercase;
     align-items: center;
     gap: 0.5rem;
@@ -381,16 +381,16 @@ $dreams-images: (
   }
 
   &__title {
+    margin-bottom: 10px;
     font-size: 2.25rem;
     font-weight: 800;
     line-height: 1;
-    margin-bottom: 10px;
     color: $text-color;
   }
 
   &__subtitle {
-    font-weight: 800;
     margin-bottom: 20px;
+    font-weight: 800;
     color: $text-color;
   }
 
@@ -429,9 +429,9 @@ $dreams-images: (
   background-color: $highlight-color;
 
   &__title {
+    margin-bottom: 1.5rem;
     font-size: 1.125rem;
     font-weight: 700;
-    margin-bottom: 1.5rem;
     text-align: left;
     color: $text-color;
 
@@ -498,9 +498,9 @@ $dreams-images: (
   }
 
   &__item-title {
+    margin-bottom: 1rem;
     font-size: 1.5rem;
     font-weight: 700;
-    margin-bottom: 1rem;
 
     @include respond-to(md) {
       font-size: 2.5rem;
@@ -516,8 +516,8 @@ $dreams-images: (
   }
 
   &__item-text {
-    font-size: 1rem;
     margin-bottom: 1.5rem;
+    font-size: 1rem;
   }
 
   &__item-button {
@@ -607,9 +607,9 @@ $dreams-images: (
 }
 
 .footer {
+  padding-bottom: 20px;
   text-align: center;
   background-color: $background-color;
-  padding-bottom: 20px;
 
   &__content {
     display: flex;

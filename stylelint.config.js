@@ -2,41 +2,52 @@ module.exports = {
   extends: ['stylelint-config-standard-scss'],
   plugins: ['stylelint-order'],
   rules: {
-    'selector-class-pattern': [
-      '^(sr-only|[a-z]+[a-z0-9]*)(__[a-z0-9_-]+)?(--[a-z0-9_-]+)?$',
+    'max-nesting-depth': [3, { ignore: ['blockless-at-rules'] }], // Проверяем до 3 уровней вложенности
+    // Разрешаем SCSS-миксины (@include, @mixin, @use и т. д.)
+    'scss/at-rule-no-unknown': [
+      true,
       {
-        message:
-          'USE BEM: block__element--modifier or utility classes of type sr-only',
+        ignoreAtRules: [
+          'include',
+          'mixin',
+          'use',
+          'forward',
+          'import',
+          'extend',
+        ],
       },
     ],
 
-    'order/order': [
-      'custom-properties', // Переменные (например, $color-primary)
-      'dollar-variables', // Sass-переменные
-      'declarations', // Обычные свойства
+    'block-no-empty': true, // Запрещаем пустые блоки {}
+
+    // Проверка именования классов (БЭМ + утилитарные классы)
+    'selector-class-pattern': [
+      '^(sr-only|[a-z][a-z0-9]*(__[a-z0-9_-]+)?(--[a-z0-9_-]+)?)$',
       {
-        type: 'at-rule',
-        name: 'include',
-      }, // Миксины (@include)
-      {
-        type: 'at-rule',
-        name: 'media',
-      }, // Медиа-запросы (@media)
+        message:
+          'Use BEM naming: block__element--modifier or utility classes like sr-only',
+      },
     ],
 
-    // 🔥 Логический порядок CSS-свойств
+    // Упорядочивание кода: переменные → свойства → медиа-запросы
+    'order/order': [
+      'custom-properties',
+      'dollar-variables',
+      'declarations',
+      { type: 'at-rule', name: 'include' },
+      { type: 'at-rule', name: 'media' },
+    ],
+
+    // Логическая сортировка CSS-свойств
     'order/properties-order': [
       {
         properties: [
-          // 1. Позиционирование
           'position',
           'top',
           'right',
           'bottom',
           'left',
           'z-index',
-
-          // 2. Блочная модель (размеры, отступы)
           'display',
           'flex',
           'grid',
@@ -48,9 +59,17 @@ module.exports = {
           'max-height',
           'margin',
           'padding',
+          'margin',
+          'margin-top',
+          'margin-right',
+          'margin-bottom',
+          'margin-left',
+          'padding',
+          'padding-top',
+          'padding-right',
+          'padding-bottom',
+          'padding-left',
           'box-sizing',
-
-          // 3. Типографика
           'font',
           'font-size',
           'font-weight',
@@ -58,8 +77,6 @@ module.exports = {
           'text-align',
           'color',
           'text-decoration',
-
-          // 4. Визуальные стили
           'background',
           'background-color',
           'background-image',
@@ -67,20 +84,13 @@ module.exports = {
           'border-radius',
           'box-shadow',
           'opacity',
-
-          // 5. Эффекты и анимации
           'transform',
           'transition',
           'animation',
-
-          // 6. Кастомные свойства
           '--custom-property',
         ],
-        severity: 'warning',
+        severity: 'warning', // Показывает предупреждения
       },
     ],
-
-    // Отключаем алфавитную сортировку
-    'order/properties-alphabetical-order': null,
   },
 };
