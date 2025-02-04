@@ -2,8 +2,14 @@ module.exports = {
   extends: ['stylelint-config-standard-scss'],
   plugins: ['stylelint-order'],
   rules: {
-    'selector-class-pattern':
+    'selector-class-pattern': [
       '^([a-z]+[a-z0-9]*)(__[a-z0-9_-]+)?(--[a-z0-9_-]+)?$',
+      {
+        message: 'USE BEM: block__element--modifier',
+        ignoreSelectors: ['.sr-only'],
+      },
+    ],
+
     'order/order': [
       'custom-properties', // Переменные (например, $color-primary)
       'dollar-variables', // Sass-переменные
