@@ -22,11 +22,39 @@ $earth-images: (
   url('./assets/images/earth@4x.png') 4x
 );
 
-$space-images: (
+$space-main-images: (
   url('./assets/images/space-main@1x.png') 1x,
   url('./assets/images/space-main@2x.png') 2x,
   url('./assets/images/space-main@3x.png') 3x,
   url('./assets/images/space-main@4x.png') 4x
+);
+
+$move-images: (
+  url('./assets/images/move@1x.png') 1x,
+  url('./assets/images/move@2x.png') 2x,
+  url('./assets/images/move@3x.png') 3x,
+  url('./assets/images/move@4x.png') 4x
+);
+
+$space-images: (
+  url('./assets/images/space@1x.png') 1x,
+  url('./assets/images/space@2x.png') 2x,
+  url('./assets/images/space@3x.png') 3x,
+  url('./assets/images/space@4x.png') 4x
+);
+
+$stars-images: (
+  url('./assets/images/stars@1x.png') 1x,
+  url('./assets/images/stars@2x.png') 2x,
+  url('./assets/images/stars@3x.png') 3x,
+  url('./assets/images/stars@4x.png') 4x
+);
+
+$dreams-images: (
+  url('./assets/images/dreams@1x.png') 1x,
+  url('./assets/images/dreams@2x.png') 2x,
+  url('./assets/images/dreams@3x.png') 3x,
+  url('./assets/images/dreams@4x.png') 4x
 );
 
 @mixin flex-center($direction: row) {
@@ -312,16 +340,16 @@ $space-images: (
   height: 100vh;
   overflow: hidden;
   background: image-set($earth-images) center -35% / 300px no-repeat,
-    image-set($space-images) center / cover no-repeat, $highlight-color;
+    image-set($space-main-images) center / cover no-repeat, $highlight-color;
   background-attachment: fixed;
 
   @include respond-to(md) {
     background: image-set($earth-images) 115% center/ 350px no-repeat,
-      image-set($space-images) center / cover no-repeat, $highlight-color;
+      image-set($space-main-images) center / cover no-repeat, $highlight-color;
   }
   @include respond-to(lg) {
     background: image-set($earth-images) 95% center / 350px no-repeat,
-      image-set($space-images) center / cover no-repeat, $highlight-color;
+      image-set($space-main-images) center / cover no-repeat, $highlight-color;
   }
 
   &__content {
@@ -447,13 +475,7 @@ $space-images: (
   &__item {
     position: relative;
     padding: 2rem;
-    background: image-set(
-        url('./assets/images/move@1x.png') 1x,
-        url('./assets/images/move@2x.png') 2x,
-        url('./assets/images/move@3x.png') 3x,
-        url('./assets/images/move@4x.png') 4x
-      )
-      center / cover no-repeat;
+    background: image-set($move-images) center / cover no-repeat;
     border-radius: 1rem;
     color: $text-color;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -462,33 +484,15 @@ $space-images: (
     height: 100%;
 
     &:nth-child(2) {
-      background: image-set(
-          url('./assets/images/space@1x.png') 1x,
-          url('./assets/images/space@2x.png') 2x,
-          url('./assets/images/space@3x.png') 3x,
-          url('./assets/images/space@4x.png') 4x
-        )
-        center / cover no-repeat;
+      background: image-set($space-images) center / cover no-repeat;
     }
 
     &:nth-child(3) {
-      background: image-set(
-          url('./assets/images/stars@1x.png') 1x,
-          url('./assets/images/stars@2x.png') 2x,
-          url('./assets/images/stars@3x.png') 3x,
-          url('./assets/images/stars@4x.png') 4x
-        )
-        center / cover no-repeat;
+      background: image-set($stars-images) center / cover no-repeat;
     }
 
     &:nth-child(4) {
-      background: image-set(
-          url('./assets/images/dreams@1x.png') 1x,
-          url('./assets/images/dreams@2x.png') 2x,
-          url('./assets/images/dreams@3x.png') 3x,
-          url('./assets/images/dreams@4x.png') 4x
-        )
-        center / cover no-repeat;
+      background: image-set($dreams-images) center / cover no-repeat;
     }
   }
 
