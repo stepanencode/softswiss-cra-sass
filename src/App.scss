@@ -152,13 +152,11 @@ $dreams-images: (
 
   @include respond-to(md) {
     position: static;
-    display: flex;
     width: auto;
     padding: 0;
-    flex-direction: row;
-    justify-content: flex-end;
-    align-items: center;
     gap: 2rem;
+
+    @include flex-center(row, flex-end);
   }
 
   &__list {
