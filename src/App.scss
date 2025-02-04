@@ -138,16 +138,12 @@ $dreams-images: (
   &__toggle {
     display: none;
 
-    // &:checked ~ .menu__icon {
-    //   @extend .menu__icon--active;
-    // }
-
     &:checked ~ .menu__icon {
       @include menu-icon-active;
     }
 
     &:checked ~ .navigation {
-      @extend .navigation--open;
+      display: flex;
     }
   }
 
@@ -168,17 +164,6 @@ $dreams-images: (
 
     &--active {
       @include menu-icon-active;
-      // span:nth-child(1) {
-      //   transform: rotate(45deg) translateY(8px);
-      // }
-
-      // span:nth-child(2) {
-      //   opacity: 0;
-      // }
-
-      // span:nth-child(3) {
-      //   transform: rotate(-45deg) translateY(-8px);
-      // }
     }
 
     @include respond-to(md) {
