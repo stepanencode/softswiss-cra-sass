@@ -103,6 +103,22 @@ $dreams-images: (
     $background-color;
 }
 
+@mixin gradient-bg(
+  $angle,
+  $color1,
+  $opacity1,
+  $pos1,
+  $color2,
+  $opacity2,
+  $pos2
+) {
+  background: linear-gradient(
+    $angle,
+    rgba($color1, $opacity1) $pos1,
+    rgba($color2, $opacity2) $pos2
+  );
+}
+
 @mixin background-image-set(
   $image,
   $position: center,
@@ -221,10 +237,15 @@ $dreams-images: (
     &-link {
       &:hover {
         color: transparent;
-        background: linear-gradient(
+
+        @include gradient-bg(
           140.47deg,
-          rgb(255 112 217 / 80%) 26.02%,
-          rgb(235 255 0 / 80%) 90.57%
+          $space-color,
+          0.8,
+          26.02%,
+          $emphasis-color,
+          0.8,
+          90.57%
         );
         background-clip: text;
       }
@@ -232,10 +253,15 @@ $dreams-images: (
       &:active,
       &:focus-within {
         color: transparent;
-        background: linear-gradient(
+
+        @include gradient-bg(
           140.47deg,
-          rgb(255 112 217 / 80%) 26.02%,
-          rgb(235 255 0 / 80%) 90.57%
+          $space-color,
+          0.8,
+          26.02%,
+          $emphasis-color,
+          0.8,
+          90.57%
         );
         background-clip: text;
       }
@@ -249,10 +275,15 @@ $dreams-images: (
     &-link {
       &:hover {
         color: transparent;
-        background: linear-gradient(
+
+        @include gradient-bg(
           140.47deg,
-          rgb(255 112 217 / 80%) 26.02%,
-          rgb(235 255 0 / 80%) 90.57%
+          $space-color,
+          0.8,
+          26.02%,
+          $emphasis-color,
+          0.8,
+          90.57%
         );
         background-clip: text;
       }
@@ -260,10 +291,15 @@ $dreams-images: (
       &:active,
       &:focus-within {
         color: transparent;
-        background: linear-gradient(
+
+        @include gradient-bg(
           140.47deg,
-          rgb(255 112 217 / 80%) 26.02%,
-          rgb(235 255 0 / 80%) 90.57%
+          $space-color,
+          0.8,
+          26.02%,
+          $emphasis-color,
+          0.8,
+          90.57%
         );
         background-clip: text;
       }
@@ -293,19 +329,27 @@ $dreams-images: (
 
       .navigation__cart-link:hover &,
       .navigation__cart-link:focus & {
-        background: linear-gradient(
+        @include gradient-bg(
           140.47deg,
-          rgb(255 112 217 / 80%) 26.02%,
-          rgb(235 255 0 / 80%) 90.57%
+          $space-color,
+          0.8,
+          26.02%,
+          $emphasis-color,
+          0.8,
+          90.57%
         );
       }
 
       .navigation__cart-link:focus-within &,
       .navigation__cart-link:active & {
-        background: linear-gradient(
+        @include gradient-bg(
           140.47deg,
-          rgb(255 112 217 / 100%) 26.02%,
-          rgb(235 255 0 / 100%) 90.57%
+          $space-color,
+          0.8,
+          26.02%,
+          $emphasis-color,
+          0.8,
+          90.57%
         );
       }
     }
