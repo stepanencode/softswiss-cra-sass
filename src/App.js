@@ -139,6 +139,12 @@ const App = () => {
         <div className="container">
           <div className="journey__content">
             <h2 className="journey__title">Embark on a space journey</h2>
+            <input
+              type="checkbox"
+              id="toggle-text"
+              className="journey__checkbox"
+            />
+
             <p className="journey__text">
               Travelling into space is one of the most exciting and
               unforgettable adventures that can change your life forever. And if
@@ -151,16 +157,16 @@ const App = () => {
               care of your safety and comfort so that you can fully enjoy your
               adventure in space. We offer various options for space excursions.
             </p>
-            <a href="#" className="journey__link">
+            <label htmlFor="toggle-text" className="journey__link">
               Read more
-            </a>
+            </label>
           </div>
         </div>
       </section>
-      <footer class="footer">
-        <div class="footer__content">
-          <img src={rocketIcon} alt="Rocket" class="footer__rocket" />
-          <p class="footer__text">Exciting space adventure!</p>
+      <footer className="footer">
+        <div className="footer__content">
+          <img src={rocketIcon} alt="Rocket" className="footer__rocket" />
+          <p className="footer__text">Exciting space adventure!</p>
         </div>
       </footer>
     </div>

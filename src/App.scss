@@ -695,6 +695,7 @@ $dreams-images: (
 
   &__title {
     color: $text-color;
+    margin-bottom: 0;
 
     @include font-style($font-size-md, 700, start, normal);
 
@@ -709,6 +710,28 @@ $dreams-images: (
 
   &__text {
     color: $journey-text;
+    overflow: hidden;
+    margin: 0;
+    // height: 3rem; // Скрытая высота
+    // transition: height 0.3s ease;
+    max-height: 1px; // Начальная высота (скрытое состояние)
+    position: relative; // Для маски
+    transition: max-height 0.3s ease;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 2rem; // Высота градиента
+      background: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0) 0%,
+        $highlight-color 100%
+      );
+      pointer-events: none;
+    }
 
     @include font-style($font-size-xs, 700, start, 1.5);
 
@@ -721,11 +744,27 @@ $dreams-images: (
     }
   }
 
+  &__checkbox {
+    display: none;
+
+    // &:checked ~ .journey__text {
+    //   height: auto;
+    // }
+
+    &:checked ~ .journey__text {
+      max-height: 20rem; // Полностью раскрытая высота
+      &::after {
+        display: none; // Убираем градиент при раскрытии
+      }
+    }
+  }
+
   &__link {
     font-size: $font-size-xs;
     color: $emphasis-color;
     text-decoration: none;
     transition: color 0.3s ease;
+    cursor: pointer;
 
     &:hover,
     &:focus {
