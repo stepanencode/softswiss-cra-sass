@@ -103,6 +103,15 @@ $dreams-images: (
     $background-color;
 }
 
+@mixin background-image-set(
+  $image,
+  $position: center,
+  $size: cover,
+  $repeat: no-repeat
+) {
+  background: image-set($image) $position / $size $repeat;
+}
+
 @mixin menu-icon-active {
   span:nth-child(1) {
     transform: rotate(45deg) translateY(8px);
@@ -352,8 +361,6 @@ $dreams-images: (
   overflow: hidden;
   background-attachment: fixed;
 
-  // background: image-set($earth-images) center -35% / 300px no-repeat,
-  //   image-set($space-main-images) center / cover no-repeat, $highlight-color;
   @include background-layers(
     $earth-images,
     'center',
@@ -368,8 +375,6 @@ $dreams-images: (
   );
 
   @include respond-to(md) {
-    // background: image-set($earth-images) 115% center/ 350px no-repeat,
-    //   image-set($space-main-images) center / cover no-repeat, $highlight-color;
     @include background-layers(
       $earth-images,
       '115%',
@@ -385,8 +390,6 @@ $dreams-images: (
   }
 
   @include respond-to(lg) {
-    // background: image-set($earth-images) 95% center / 350px no-repeat,
-    //   image-set($space-main-images) center / cover no-repeat, $highlight-color;
     @include background-layers(
       $earth-images,
       '95%',
@@ -527,21 +530,21 @@ $dreams-images: (
     height: 100%;
     padding: 2rem;
     color: $text-color;
-    background: image-set($move-images) center / cover no-repeat;
     border-radius: 1rem;
     box-shadow: 0 4px 6px rgb(0 0 0 / 10%);
     flex-direction: column;
+    @include background-image-set($move-images);
 
     &:nth-child(2) {
-      background: image-set($space-images) center / cover no-repeat;
+      @include background-image-set($space-images);
     }
 
     &:nth-child(3) {
-      background: image-set($stars-images) center / cover no-repeat;
+      @include background-image-set($stars-images);
     }
 
     &:nth-child(4) {
-      background: image-set($dreams-images) center / cover no-repeat;
+      @include background-image-set($dreams-images);
     }
   }
 
