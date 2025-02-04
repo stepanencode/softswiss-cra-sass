@@ -4,10 +4,11 @@
 
 $space-color: #ff70d9;
 $emphasis-color: #f4ff4b;
+$dark-emphasis-color: #ebff0099;
 $highlight-color: #1d2c5e;
-$text-color: white;
+$text-color: #ffffff;
 $journey-text: #bcbcbc;
-$background-color: black;
+$background-color: #000000;
 $font-size-large: 2.5rem;
 $font-size-medium: 1.2rem;
 $breakpoints: (
@@ -412,8 +413,8 @@ $dreams-images: (
     transition: all 0.3s;
 
     &:hover {
-      background-color: #ebff0099;
-      border: 1px solid #ebff0099;
+      background-color: $dark-emphasis-color;
+      border: 1px solid $dark-emphasis-color;
     }
   }
 }
@@ -532,8 +533,8 @@ $dreams-images: (
 
     &:hover {
       &:hover {
-        color: #ebff0099;
-        border: 1px solid #ebff0099;
+        color: $dark-emphasis-color;
+        border: 1px solid $dark-emphasis-color;
       }
     }
   }
@@ -589,7 +590,7 @@ $dreams-images: (
 
     &:hover,
     &:focus {
-      color: color.adjust(#ebff0099, $lightness: 10%);
+      color: color.adjust($dark-emphasis-color, $lightness: 10%);
     }
 
     @include respond-to(md) {
@@ -608,10 +609,7 @@ $dreams-images: (
   background-color: $background-color;
 
   &__content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    @include flex-center(column);
   }
 
   &__rocket {
