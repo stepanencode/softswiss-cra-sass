@@ -10,8 +10,29 @@ $highlight-color: #1d2c5e;
 $text-color: #fff;
 $journey-text: #bcbcbc;
 $background-color: #000;
-$font-size-large: 2.5rem;
-$font-size-medium: 1.2rem;
+
+$font-size-xs: 0.875rem; // Extra Small
+$font-size-sm: 1rem; // Small
+
+// Средние размеры (обычный текст)
+$font-size-md: 1.125rem; // Medium
+$font-size-base: 1.2rem; // Базовый размер
+$font-size-lg: 1.25rem; // Large
+
+// Крупные размеры (заголовки, важные элементы)
+$font-size-xl: 1.5rem; // Extra Large
+$font-size-2xl: 2rem; // H1 / важные заголовки
+$font-size-3xl: 2.25rem; // Крупные заголовки
+$font-size-4xl: 2.5rem; // Очень крупные заголовки
+$font-size-5xl: 4.625rem; // Супер заголовки
+
+@mixin font-style($size, $weight: 700, $align: start, $line-height: normal) {
+  font-size: $size;
+  font-weight: $weight;
+  text-align: $align;
+  line-height: $line-height;
+}
+
 $breakpoints: (
   sm: 360px,
   md: 768px,
@@ -174,7 +195,7 @@ $dreams-images: (
     }
 
     &-text {
-      font-size: clamp(1.2rem, 2vw, 1.5rem);
+      font-size: clamp($font-size-base, 2vw, $font-size-xl);
       font-weight: bold;
     }
   }
@@ -221,14 +242,13 @@ $dreams-images: (
     display: flex;
     width: fit-content;
     padding-left: 0.5rem;
-    font-size: 1.125rem;
-    font-weight: 700;
     color: $text-color;
     text-transform: uppercase;
-    align-items: center;
     gap: 0.5rem;
     cursor: pointer;
     -webkit-tap-highlight-color: transparent;
+
+    @include font-style($font-size-md, 700, center, normal);
 
     @include respond-to(md) {
       padding-left: 0;
@@ -455,6 +475,7 @@ $dreams-images: (
     display: flex;
     width: 100%;
     max-width: 1248px;
+    margin: 0 auto;
     padding: 50px;
     text-align: center;
     transform: translateX(-50%);
@@ -473,9 +494,10 @@ $dreams-images: (
     @include respond-to(lg) {
       position: relative;
       top: 50%;
+
       left: 0;
       width: 100%;
-      margin: 0 auto;
+      // margin: 0 auto;
       text-align: left;
       transform: translateY(-50%);
       align-items: flex-start;
@@ -484,10 +506,9 @@ $dreams-images: (
 
   &__title {
     margin-bottom: 10px;
-    font-size: 2.25rem;
-    font-weight: 800;
-    line-height: 1;
     color: $text-color;
+
+    @include font-style($font-size-3xl, 800, start, 1);
   }
 
   &__subtitle {
@@ -532,17 +553,16 @@ $dreams-images: (
 
   &__title {
     margin-bottom: 1.5rem;
-    font-size: 1.125rem;
-    font-weight: 700;
-    text-align: left;
     color: $text-color;
 
+    @include font-style($font-size-md, 700, left, normal);
+
     @include respond-to(md) {
-      font-size: 1.5rem;
+      font-size: $font-size-xl;
     }
 
     @include respond-to(lg) {
-      font-size: 2rem;
+      font-size: $font-size-2xl;
     }
   }
 
@@ -601,15 +621,15 @@ $dreams-images: (
 
   &__item-title {
     margin-bottom: 1rem;
-    font-size: 1.5rem;
+    font-size: $font-size-xl;
     font-weight: 700;
 
     @include respond-to(md) {
-      font-size: 2.5rem;
+      font-size: $font-size-4xl;
     }
 
     @include respond-to(lg) {
-      font-size: 4.625rem;
+      font-size: $font-size-5xl;
     }
   }
 
@@ -619,7 +639,7 @@ $dreams-images: (
 
   &__item-text {
     margin-bottom: 1.5rem;
-    font-size: 1rem;
+    font-size: $font-size-sm;
   }
 
   &__item-button {
@@ -655,36 +675,35 @@ $dreams-images: (
   }
 
   &__title {
-    font-size: 1.125rem;
-    font-weight: 700;
     color: $text-color;
 
+    @include font-style($font-size-md, 700, start, normal);
+
     @include respond-to(md) {
-      font-size: 1.5rem;
+      font-size: $font-size-xl;
     }
 
     @include respond-to(lg) {
-      font-size: 2rem;
+      font-size: $font-size-2xl;
     }
   }
 
   &__text {
-    font-size: 0.875rem;
-    line-height: 1.5;
     color: $journey-text;
 
+    @include font-style($font-size-xs, 700, start, 1.5);
+
     @include respond-to(md) {
-      font-size: 1rem;
+      font-size: $font-size-sm;
     }
 
     @include respond-to(lg) {
-      font-size: 1.25rem;
+      font-size: $font-size-lg;
     }
   }
 
   &__link {
-    font-size: 0.875rem;
-    font-weight: 700;
+    font-size: $font-size-xs;
     color: $emphasis-color;
     text-decoration: none;
     transition: color 0.3s ease;
@@ -695,11 +714,11 @@ $dreams-images: (
     }
 
     @include respond-to(md) {
-      font-size: 1rem;
+      font-size: $font-size-sm;
     }
 
     @include respond-to(lg) {
-      font-size: 1.25rem;
+      font-size: $font-size-lg;
     }
   }
 }
@@ -719,7 +738,7 @@ $dreams-images: (
   }
 
   &__text {
-    font-size: 1.125rem;
+    font-size: $font-size-md;
     color: $emphasis-color;
   }
 }
