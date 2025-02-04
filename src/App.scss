@@ -1,3 +1,4 @@
+@use 'sass:color';
 @use 'sass:math';
 @use 'sass:map';
 
@@ -455,12 +456,12 @@ $dreams-images: (
     @include respond-to(lg) {
       grid-template-columns: 1fr 1fr;
 
-      & > li:nth-child(3n + 1) {
-        grid-column: span 2;
-      }
-
       & > li {
         grid-column: span 1;
+      }
+
+      & > li:nth-child(3n + 1) {
+        grid-column: span 2;
       }
     }
   }
@@ -592,7 +593,7 @@ $dreams-images: (
 
     &:hover,
     &:focus {
-      color: lighten($emphasis-color, 10%);
+      color: color.adjust(#ebff0099, $lightness: 10%);
     }
 
     @include respond-to(md) {

@@ -3,10 +3,10 @@ module.exports = {
   plugins: ['stylelint-order'],
   rules: {
     'selector-class-pattern': [
-      '^([a-z]+[a-z0-9]*)(__[a-z0-9_-]+)?(--[a-z0-9_-]+)?$',
+      '^(sr-only|[a-z]+[a-z0-9]*)(__[a-z0-9_-]+)?(--[a-z0-9_-]+)?$',
       {
-        message: 'USE BEM: block__element--modifier',
-        ignoreSelectors: ['.sr-only'],
+        message:
+          'USE BEM: block__element--modifier or utility classes of type sr-only',
       },
     ],
 
