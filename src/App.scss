@@ -24,12 +24,7 @@ $font-size-3xl: 2.25rem;
 $font-size-4xl: 2.5rem;
 $font-size-5xl: 4.625rem;
 
-@mixin font-style($size, $weight: 700, $align: start, $line-height: normal) {
-  font-size: $size;
-  font-weight: $weight;
-  text-align: $align;
-  line-height: $line-height;
-}
+$box-shadow-default: 0 4px 6px rgb(0 0 0 / 10%);
 
 $breakpoints: (
   sm: 360px,
@@ -73,6 +68,13 @@ $dreams-images: (
   url('./assets/images/dreams@3x.png') 3x,
   url('./assets/images/dreams@4x.png') 4x
 );
+
+@mixin font-style($size, $weight: 700, $align: start, $line-height: normal) {
+  font-size: $size;
+  font-weight: $weight;
+  text-align: $align;
+  line-height: $line-height;
+}
 
 @mixin flex-center($direction: row, $justify-content: center) {
   display: flex;
@@ -617,7 +619,7 @@ $dreams-images: (
     padding: 2rem;
     color: $text-color;
     border-radius: 1rem;
-    box-shadow: 0 4px 6px rgb(0 0 0 / 10%);
+    box-shadow: $box-shadow-default;
     flex-direction: column;
     @include background-image-set($move-images);
 
