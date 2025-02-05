@@ -10,34 +10,27 @@ $highlight-color: #1d2c5e;
 $text-color: #fff;
 $journey-text: #bcbcbc;
 $background-color: #000;
-
 $gradient-background: linear-gradient(
   180.96deg,
   #0d1e48 -0.67%,
   #304571 100.39%
 );
-
 $font-size-xs: 0.875rem;
 $font-size-sm: 1rem;
-
 $font-size-md: 1.125rem;
 $font-size-base: 1.2rem;
 $font-size-lg: 1.25rem;
-
 $font-size-xl: 1.5rem;
 $font-size-2xl: 2rem;
 $font-size-3xl: 2.25rem;
 $font-size-4xl: 2.5rem;
 $font-size-5xl: 4.625rem;
-
 $box-shadow-default: 0 4px 6px rgb(0 0 0 / 10%);
-
 $breakpoints: (
   sm: 360px,
   md: 768px,
   lg: 1248px,
 );
-
 $earth-images: (
   url('./assets/images/earth@1x.png') 1x,
   url('./assets/images/earth@2x.png') 2x,
@@ -78,8 +71,8 @@ $dreams-images: (
 @mixin font-style($size, $weight: 700, $align: start, $line-height: normal) {
   font-size: $size;
   font-weight: $weight;
-  text-align: $align;
   line-height: $line-height;
+  text-align: $align;
 }
 
 @mixin flex-center($direction: row, $justify-content: center) {
@@ -208,7 +201,6 @@ $dreams-images: (
     position: relative;
 
     @include container;
-
     @include flex-center(row, space-between);
     @include responsive-padding(0.5rem, 2vw, 1rem);
 
@@ -581,6 +573,7 @@ $dreams-images: (
 
 .container {
   padding: 0 50px;
+
   @include container;
 }
 
@@ -630,10 +623,10 @@ $dreams-images: (
     height: 100%;
     padding: 2rem;
     color: $text-color;
+    background: $highlight-color;
     border-radius: 1rem;
     box-shadow: $box-shadow-default;
     flex-direction: column;
-    background: $highlight-color;
 
     &--move {
       @include background-image-set($move-images);
@@ -698,6 +691,7 @@ $dreams-images: (
 
 .journey {
   padding-bottom: 2rem;
+
   &__content {
     display: flex;
     text-align: left;
@@ -708,8 +702,8 @@ $dreams-images: (
   }
 
   &__title {
-    color: $text-color;
     margin-bottom: 0;
+    color: $text-color;
 
     @include font-style($font-size-md, 700, start, normal);
 
@@ -723,19 +717,19 @@ $dreams-images: (
   }
 
   &__text {
+    position: relative;
+    max-height: 0;
+    margin: 0;
     color: $journey-text;
     overflow: hidden;
-    margin: 0;
-    max-height: 0;
-    position: relative;
     transition: max-height 0.3s ease;
 
     &::after {
       content: '';
       position: absolute;
+      right: 0;
       bottom: 0;
       left: 0;
-      right: 0;
       height: 2rem;
       pointer-events: none;
     }
@@ -752,7 +746,8 @@ $dreams-images: (
   }
 
   &__text--expanded {
-    max-height: 20rem !important;
+    max-height: 20rem;
+
     &::after {
       display: none;
     }
@@ -760,12 +755,15 @@ $dreams-images: (
 
   &__checkbox {
     display: none;
+
     &:checked ~ .journey__text {
       max-height: 20rem;
+
       &::after {
         display: none;
       }
     }
+
     &:checked ~ .journey__link::after {
       content: 'Read less';
     }
@@ -785,16 +783,18 @@ $dreams-images: (
 
   &__link {
     font-size: $font-size-xs;
+    text-align: start;
     color: $emphasis-color;
     text-decoration: none;
-    text-align: start;
     transition: color 0.3s ease;
     cursor: pointer;
+
     &::after {
       content: 'Read more';
       display: inline-block;
       pointer-events: auto;
     }
+
     &:hover,
     &:hover::after,
     &:focus::after {
@@ -803,6 +803,7 @@ $dreams-images: (
 
     @include respond-to(md) {
       font-size: $font-size-sm;
+
       &::after {
         content: none;
       }
@@ -810,6 +811,7 @@ $dreams-images: (
 
     @include respond-to(lg) {
       font-size: $font-size-lg;
+
       &::after {
         content: none;
       }
