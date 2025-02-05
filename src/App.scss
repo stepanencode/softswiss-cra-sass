@@ -324,7 +324,7 @@ $dreams-images: (
     }
   }
 
-  &__cart {
+  &__symbol {
     display: flex;
     align-items: center;
 
@@ -373,18 +373,21 @@ $dreams-images: (
       display: none;
       width: 24px;
       height: 24px;
-      background: $text-color;
-      mask-image: url('./assets/images/cart.svg');
-      mask-size: contain;
-      mask-repeat: no-repeat;
-      mask-position: center;
 
       @include respond-to(md) {
         display: block;
       }
 
-      .navigation__cart-link:hover &,
-      .navigation__cart-link:focus & {
+      &--cart {
+        background: $text-color;
+        mask-image: url('./assets/images/cart.svg');
+        mask-size: contain;
+        mask-repeat: no-repeat;
+        mask-position: center;
+      }
+
+      .navigation__symbol-link:hover &,
+      .navigation__symbol-link:focus & {
         @include gradient-bg(
           140.47deg,
           $space-color,
@@ -396,8 +399,8 @@ $dreams-images: (
         );
       }
 
-      .navigation__cart-link:focus-within &,
-      .navigation__cart-link:active & {
+      .navigation__symbol-link:focus-within &,
+      .navigation__symbol-link:active & {
         @include gradient-bg(
           140.47deg,
           $space-color,

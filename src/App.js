@@ -1,10 +1,29 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.scss';
 import planetIcon from './assets/images/planet.svg';
 import rocketIcon from './assets/images/rocket.svg';
 
+const initialMenu = [
+  { name: 'Home', link: '#', isIcon: false },
+  { name: 'Products', link: '#', isIcon: false },
+  { name: 'Cart', link: '#', isIcon: true },
+];
+// const initialArticles = [
+//   { id: 1, title: "Move the borders of reality!", content: "Go on a space adventure", image: planetIcon },
+//   { id: 2, title: "Space is not just stars and planets", content: "It is a majestic journey", image: rocketIcon },
+//   { id: 3, title: "For those who dream of stars", content: "Our offer: make your dream come true", image: planetIcon },
+//   { id: 4, title: "Fulfill your fantastic dreams", content: "Space has never been so close", image: rocketIcon }
+// ];
+
 const App = () => {
+  const [menuItems, setMenuItems] = useState([]);
+  // const [articles, setArticles] = useState([]);
+
+  useEffect(() => {
+    setMenuItems(initialMenu);
+    // setArticles(initialArticles);
+  }, []);
   return (
     <div className="app">
       <header className="header">
@@ -39,25 +58,41 @@ const App = () => {
               aria-label="Main Navigation"
             >
               <ul className="navigation__list" role="menu">
-                <li className="navigation__item" role="menuitem">
-                  <a href="#" className="navigation__item-link" tabIndex={0}>
-                    <span className="navigation__text">Home</span>
-                  </a>
-                </li>
-                <li className="navigation__item" role="menuitem">
-                  <a href="#" className="navigation__item-link" tabIndex={0}>
-                    <span className="navigation__text">Products</span>
-                  </a>
-                </li>
-                <li
-                  className="navigation__item navigation__cart"
-                  role="menuitem"
-                >
-                  <a href="#" className="navigation__cart-link" tabIndex={0}>
-                    <span className="navigation__cart-text">Cart</span>
-                    <div className="navigation__cart-icon"></div>
-                  </a>
-                </li>
+                {menuItems.map((item, index) => (
+                  <li
+                    key={index}
+                    className={`navigation__item ${
+                      item.isIcon ? 'navigation__symbol' : ''
+                    }`}
+                    role="menuitem"
+                  >
+                    <a
+                      href={item.link}
+                      className={
+                        item.isIcon
+                          ? 'navigation__symbol-link'
+                          : 'navigation__item-link'
+                      }
+                      tabIndex={0}
+                    >
+                      <span
+                        className={
+                          item.isIcon
+                            ? 'navigation__symbol-text'
+                            : 'navigation__text'
+                        }
+                      >
+                        {item.name}
+                      </span>
+                      {item.isIcon && (
+                        <div
+                          className={`navigation__symbol-icon navigation__symbol-icon--${item.name.toLowerCase()}`}
+                        ></div>
+                        // <div className="navigation__symbol-icon"></div>
+                      )}
+                    </a>
+                  </li>
+                ))}
               </ul>
             </nav>
           </div>
