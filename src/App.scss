@@ -11,6 +11,12 @@ $text-color: #fff;
 $journey-text: #bcbcbc;
 $background-color: #000;
 
+$gradient-background: linear-gradient(
+  180.96deg,
+  #0d1e48 -0.67%,
+  #304571 100.39%
+);
+
 $font-size-xs: 0.875rem;
 $font-size-sm: 1rem;
 
@@ -448,6 +454,10 @@ $dreams-images: (
   @include screenreader-only;
 }
 
+.main {
+  background: $gradient-background;
+}
+
 .hero {
   position: relative;
   width: 100%;
@@ -573,7 +583,6 @@ $dreams-images: (
 
 .offers {
   padding: 2.5rem 0;
-  background-color: $highlight-color;
 
   &__title {
     margin-bottom: 1.5rem;
@@ -682,8 +691,6 @@ $dreams-images: (
 
 .journey {
   padding-bottom: 2rem;
-  background-color: $highlight-color;
-
   &__content {
     display: flex;
     text-align: left;
@@ -712,10 +719,8 @@ $dreams-images: (
     color: $journey-text;
     overflow: hidden;
     margin: 0;
-    // height: 3rem; // Скрытая высота
-    // transition: height 0.3s ease;
-    max-height: 1px; // Начальная высота (скрытое состояние)
-    position: relative; // Для маски
+    max-height: 0;
+    position: relative;
     transition: max-height 0.3s ease;
 
     &::after {
@@ -724,12 +729,7 @@ $dreams-images: (
       bottom: 0;
       left: 0;
       right: 0;
-      height: 2rem; // Высота градиента
-      background: linear-gradient(
-        to bottom,
-        rgba(255, 255, 255, 0) 0%,
-        $highlight-color 100%
-      );
+      height: 2rem;
       pointer-events: none;
     }
 
@@ -746,15 +746,10 @@ $dreams-images: (
 
   &__checkbox {
     display: none;
-
-    // &:checked ~ .journey__text {
-    //   height: auto;
-    // }
-
     &:checked ~ .journey__text {
-      max-height: 20rem; // Полностью раскрытая высота
+      max-height: 20rem;
       &::after {
-        display: none; // Убираем градиент при раскрытии
+        display: none;
       }
     }
   }
