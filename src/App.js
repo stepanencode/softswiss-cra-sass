@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useLayoutEffect } from 'react';
 import './App.scss';
 import planetIcon from './assets/images/planet.svg';
 import rocketIcon from './assets/images/rocket.svg';
@@ -61,25 +61,22 @@ const App = () => {
   const [heroData, setHeroData] = useState({});
   const offersRef = useRef(null);
   const [isExpanded, setIsExpanded] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+  useLayoutEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   useEffect(() => {
     setMenuItems(initialMenu);
     setHeroData(initialHero);
     setSections(initialOffers);
     setJourneyData(initialJourney);
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-
-    const debounceResize = () => {
-      clearTimeout(window.resizeTimeout);
-      window.resizeTimeout = setTimeout(handleResize, 200);
-    };
-
-    handleResize();
-    window.addEventListener('resize', debounceResize);
-    return () => window.removeEventListener('resize', debounceResize);
   }, []);
 
   const toggleText = () => {
@@ -244,42 +241,6 @@ const App = () => {
                   </button>
                 </>
               )}
-              {/* {!isMobile && (
-                <p
-                  className={`journey__text ${
-                    isExpanded ? 'journey__text--expanded' : ''
-                  }`}
-                >
-                  {journeyData?.text}
-                </p>
-              )}
-              {isMobile && (
-                <>
-                  <input
-                    type="checkbox"
-                    id="toggle-text"
-                    className="journey__checkbox"
-                  />
-                  <p className="journey__text">{journeyData?.text}</p>
-                </>
-              )}
-              <label
-                htmlFor="toggle-text"
-                className="journey__link"
-                onClick={toggleText}
-              >
-                {isExpanded ? 'Read less' : 'Read more'}
-              </label> */}
-
-              {/* <input
-                type="checkbox"
-                id="toggle-text"
-                className="journey__checkbox"
-              />
-              <p className="journey__text">{journeyData?.text}</p>
-              <label htmlFor="toggle-text" className="journey__link">
-                Read more
-              </label> */}
             </div>
           </div>
         </section>
