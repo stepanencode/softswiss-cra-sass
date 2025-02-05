@@ -751,6 +751,13 @@ $dreams-images: (
     }
   }
 
+  &__text--expanded {
+    max-height: 20rem !important;
+    &::after {
+      display: none;
+    }
+  }
+
   &__checkbox {
     display: none;
     &:checked ~ .journey__text {
@@ -759,26 +766,53 @@ $dreams-images: (
         display: none;
       }
     }
+    &:checked ~ .journey__link::after {
+      content: 'Read less';
+    }
+
+    @include respond-to(md) {
+      &:checked ~ .journey__link::after {
+        content: none;
+      }
+    }
+
+    @include respond-to(lg) {
+      &:checked ~ .journey__link::after {
+        content: none;
+      }
+    }
   }
 
   &__link {
     font-size: $font-size-xs;
     color: $emphasis-color;
     text-decoration: none;
+    text-align: start;
     transition: color 0.3s ease;
     cursor: pointer;
-
+    &::after {
+      content: 'Read more';
+      display: inline-block;
+      pointer-events: auto;
+    }
     &:hover,
-    &:focus {
+    &:hover::after,
+    &:focus::after {
       color: color.adjust($dark-emphasis-color, $lightness: 10%);
     }
 
     @include respond-to(md) {
       font-size: $font-size-sm;
+      &::after {
+        content: none;
+      }
     }
 
     @include respond-to(lg) {
       font-size: $font-size-lg;
+      &::after {
+        content: none;
+      }
     }
   }
 }

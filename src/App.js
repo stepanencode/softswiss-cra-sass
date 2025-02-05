@@ -60,13 +60,33 @@ const App = () => {
   const [journeyData, setJourneyData] = useState({});
   const [heroData, setHeroData] = useState({});
   const offersRef = useRef(null);
+  const [isExpanded, setIsExpanded] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     setMenuItems(initialMenu);
     setHeroData(initialHero);
     setSections(initialOffers);
     setJourneyData(initialJourney);
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    const debounceResize = () => {
+      clearTimeout(window.resizeTimeout);
+      window.resizeTimeout = setTimeout(handleResize, 200);
+    };
+
+    handleResize();
+    window.addEventListener('resize', debounceResize);
+    return () => window.removeEventListener('resize', debounceResize);
   }, []);
+
+  const toggleText = () => {
+    if (!isMobile) {
+      setIsExpanded(!isExpanded);
+    }
+  };
 
   const getSectionData = (sectionRef) => {
     if (!sectionRef.current) return null;
@@ -196,16 +216,70 @@ const App = () => {
           <div className="container">
             <div className="journey__content">
               <h2 className="journey__title">{journeyData?.title}</h2>
-              <input
+
+              {isMobile ? (
+                <>
+                  <input
+                    type="checkbox"
+                    id="toggle-text"
+                    className="journey__checkbox"
+                  />
+                  <p className="journey__text">{journeyData?.text}</p>
+                  <label
+                    htmlFor="toggle-text"
+                    className="journey__link"
+                  ></label>
+                </>
+              ) : (
+                <>
+                  <p
+                    className={`journey__text ${
+                      isExpanded ? 'journey__text--expanded' : ''
+                    }`}
+                  >
+                    {journeyData?.text}
+                  </p>
+                  <button className="journey__link" onClick={toggleText}>
+                    {isExpanded ? 'Read less' : 'Read more'}
+                  </button>
+                </>
+              )}
+              {/* {!isMobile && (
+                <p
+                  className={`journey__text ${
+                    isExpanded ? 'journey__text--expanded' : ''
+                  }`}
+                >
+                  {journeyData?.text}
+                </p>
+              )}
+              {isMobile && (
+                <>
+                  <input
+                    type="checkbox"
+                    id="toggle-text"
+                    className="journey__checkbox"
+                  />
+                  <p className="journey__text">{journeyData?.text}</p>
+                </>
+              )}
+              <label
+                htmlFor="toggle-text"
+                className="journey__link"
+                onClick={toggleText}
+              >
+                {isExpanded ? 'Read less' : 'Read more'}
+              </label> */}
+
+              {/* <input
                 type="checkbox"
                 id="toggle-text"
                 className="journey__checkbox"
               />
-
               <p className="journey__text">{journeyData?.text}</p>
               <label htmlFor="toggle-text" className="journey__link">
                 Read more
-              </label>
+              </label> */}
             </div>
           </div>
         </section>
