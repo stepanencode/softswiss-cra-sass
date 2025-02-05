@@ -9,12 +9,43 @@ const initialMenu = [
   { name: 'Products', link: '#', isIcon: false },
   { name: 'Cart', link: '#', isIcon: true },
 ];
-// const initialArticles = [
-//   { id: 1, title: "Move the borders of reality!", content: "Go on a space adventure", image: planetIcon },
-//   { id: 2, title: "Space is not just stars and planets", content: "It is a majestic journey", image: rocketIcon },
-//   { id: 3, title: "For those who dream of stars", content: "Our offer: make your dream come true", image: planetIcon },
-//   { id: 4, title: "Fulfill your fantastic dreams", content: "Space has never been so close", image: rocketIcon }
-// ];
+
+const initialHeroSectionInfo = [
+  {
+    header: 'hero',
+    id: 12,
+    title: 'Discover the vast expanses of space',
+    text: 'Where the possibilities are endless!',
+    buttonText: 'Learn more',
+  },
+];
+const initialArticles = [
+  { header: 'Offers' },
+  {
+    id: 1,
+    title: 'Move the borders of reality!',
+    content: 'Go on a space adventure',
+    image: planetIcon,
+  },
+  {
+    id: 2,
+    title: 'Space is not just stars and planets',
+    content: 'It is a majestic journey',
+    image: rocketIcon,
+  },
+  {
+    id: 3,
+    title: 'For those who dream of stars',
+    content: 'Our offer: make your dream come true',
+    image: planetIcon,
+  },
+  {
+    id: 4,
+    title: 'Fulfill your fantastic dreams',
+    content: 'Space has never been so close',
+    image: rocketIcon,
+  },
+];
 
 const App = () => {
   const [menuItems, setMenuItems] = useState([]);
@@ -88,7 +119,6 @@ const App = () => {
                         <div
                           className={`navigation__symbol-icon navigation__symbol-icon--${item.name.toLowerCase()}`}
                         ></div>
-                        // <div className="navigation__symbol-icon"></div>
                       )}
                     </a>
                   </li>
