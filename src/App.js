@@ -19,31 +19,31 @@ const initialHeroSectionInfo = [
     buttonText: 'Learn more',
   },
 ];
-const initialArticles = [
-  { header: 'Offers' },
+
+const offers = [
   {
     id: 1,
     title: 'Move the borders of reality!',
-    content: 'Go on a space adventure',
-    image: planetIcon,
+    text: 'Go on a space adventure - it’s possible with us!',
+    modifier: 'move',
   },
   {
     id: 2,
     title: 'Space is not just stars and planets',
-    content: 'It is a majestic journey',
-    image: rocketIcon,
+    text: 'It is a majestic journey to explore.',
+    modifier: 'space',
   },
   {
     id: 3,
     title: 'For those who dream of stars',
-    content: 'Our offer: make your dream come true',
-    image: planetIcon,
+    text: 'Our offer: make your dream come true.',
+    modifier: 'stars',
   },
   {
     id: 4,
     title: 'Fulfill your fantastic dreams',
-    content: 'Space has never been so close',
-    image: rocketIcon,
+    text: 'Space has never been so close.',
+    modifier: 'dreams',
   },
 ];
 
@@ -146,7 +146,21 @@ const App = () => {
           <div className="container">
             <h2 className="offers__title">Offers</h2>
             <ul className="offers__list">
-              <li className="offers__item">
+              {offers.map((offer) => (
+                <li
+                  key={offer.id}
+                  className={`offers__item offers__item--${offer.modifier}`}
+                >
+                  <article className="offers__article">
+                    <div className="offers__text-container">
+                      <h3 className="offers__item-title">{offer.title}</h3>
+                      <p className="offers__item-text">{offer.text}</p>
+                    </div>
+                    <button className="offers__item-button">Learn more</button>
+                  </article>
+                </li>
+              ))}
+              {/* <li className="offers__item">
                 <article className="offers__article">
                   <div className="offers__text-container">
                     <h3 className="offers__item-title">
@@ -197,7 +211,7 @@ const App = () => {
                   </div>
                   <button className="offers__item-button">Learn more</button>
                 </article>
-              </li>
+              </li> */}
             </ul>
           </div>
         </section>

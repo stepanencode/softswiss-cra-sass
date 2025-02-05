@@ -634,34 +634,22 @@ $dreams-images: (
     box-shadow: $box-shadow-default;
     flex-direction: column;
     background: $highlight-color;
-    @include background-image-set($move-images);
 
-    &:nth-child(2) {
+    &--move {
+      @include background-image-set($move-images);
+    }
+
+    &--space {
       @include background-image-set($space-images);
     }
 
-    &:nth-child(3) {
+    &--stars {
       @include background-image-set($stars-images);
     }
 
-    &:nth-child(4) {
+    &--dreams {
       @include background-image-set($dreams-images);
     }
-
-    //  &--move{
-    // @include background-image-set($move-images);}
-
-    // &--space {
-    //   @include background-image-set($space-images);
-    // }
-
-    // &--stars {
-    //   @include background-image-set($stars-images);
-    // }
-
-    // &--dreams {
-    //   @include background-image-set($dreams-images);
-    // }
   }
 
   &__article {
