@@ -110,25 +110,20 @@ $dreams-images: (
   width: $width;
   max-width: $max-width;
   margin: $margin;
+  // background-color: red;
 }
 
-@mixin background-layers(
-  $first-image,
-  $first-x,
-  $first-y,
-  $first-size,
-  $first-repeat,
-  $second-image,
-  $second-pos,
-  $second-size,
-  $second-repeat,
-  $background-color
+@mixin background-layer(
+  $image,
+  $position: center,
+  $size: cover,
+  $repeat: no-repeat,
+  $background-color: $highlight-color,
+  $overlay-color: rgba(0, 0, 0, 0.4)
 ) {
-  background: image-set($first-image) string.unquote($first-x)
-      string.unquote($first-y) / string.unquote($first-size)
-      string.unquote($first-repeat),
-    image-set($second-image) string.unquote($second-pos) /
-      string.unquote($second-size) string.unquote($second-repeat),
+  background: linear-gradient($overlay-color, $overlay-color),
+    image-set($image) string.unquote($position) / string.unquote($size)
+      string.unquote($repeat),
     $background-color;
 }
 
@@ -146,15 +141,6 @@ $dreams-images: (
     rgba($color1, $opacity1) $pos1,
     rgba($color2, $opacity2) $pos2
   );
-}
-
-@mixin background-image-set(
-  $image,
-  $position: center,
-  $size: cover,
-  $repeat: no-repeat
-) {
-  background: image-set($image) $position / $size $repeat;
 }
 
 @mixin menu-icon-active {
@@ -458,51 +444,18 @@ $dreams-images: (
 .hero {
   position: relative;
   width: 100%;
-  height: 100vh;
+  // height: 100vh;
   overflow: hidden;
   background-attachment: fixed;
 
-  @include background-layers(
-    $earth-images,
-    'center',
-    '-35%',
-    '300px',
-    'no-repeat',
-    $space-main-images,
-    'center',
-    'cover',
-    'no-repeat',
-    $highlight-color
-  );
+  @include background-layer($space-main-images);
 
   @include respond-to(md) {
-    @include background-layers(
-      $earth-images,
-      '115%',
-      'center',
-      '350px',
-      'no-repeat',
-      $space-main-images,
-      'center',
-      'cover',
-      'no-repeat',
-      $highlight-color
-    );
+    @include background-layer($space-main-images);
   }
 
   @include respond-to(lg) {
-    @include background-layers(
-      $earth-images,
-      '95%',
-      'center',
-      '350px',
-      'no-repeat',
-      $space-main-images,
-      'center',
-      'cover',
-      'no-repeat',
-      $highlight-color
-    );
+    @include background-layer($space-main-images);
   }
 
   &__content {
@@ -577,13 +530,14 @@ $dreams-images: (
 }
 
 .container {
-  padding: 0 50px;
+  padding: 20px 50px;
+  background-color: plum;
 
   @include container;
 }
 
 .offers {
-  padding: 2.5rem 0;
+  // padding: 2.5rem 0;
 
   &__title {
     margin-bottom: 1.5rem;
@@ -634,19 +588,19 @@ $dreams-images: (
     flex-direction: column;
 
     &--move {
-      @include background-image-set($move-images);
+      @include background-layer($move-images);
     }
 
     &--space {
-      @include background-image-set($space-images);
+      @include background-layer($space-images);
     }
 
     &--stars {
-      @include background-image-set($stars-images);
+      @include background-layer($stars-images);
     }
 
     &--dreams {
-      @include background-image-set($dreams-images);
+      @include background-layer($dreams-images);
     }
   }
 
@@ -774,18 +728,10 @@ $dreams-images: (
 
     @include respond-to(md) {
       font-size: $font-size-sm;
-
-      // &::after {
-      //   content: none;
-      // }
     }
 
     @include respond-to(lg) {
       font-size: $font-size-lg;
-
-      // &::after {
-      //   content: none;
-      // }
     }
   }
 }

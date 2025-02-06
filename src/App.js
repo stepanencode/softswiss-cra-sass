@@ -151,14 +151,16 @@ const App = () => {
       </header>
       <main className="main">
         <section className="hero">
-          <div className="hero__content">
-            <h1 className="hero__title">
-              {extractLastWordForStyling(heroData.title, 'hero__highlight')}
-            </h1>
-            <p className="hero__subtitle">
-              {extractLastWordForStyling(heroData.text, 'hero__emphasis')}
-            </p>
-            <button className="hero__button">Learn more</button>
+          <div className="container">
+            <div className="hero__content">
+              <h1 className="hero__title">
+                {extractLastWordForStyling(heroData.title, 'hero__highlight')}
+              </h1>
+              <p className="hero__subtitle">
+                {extractLastWordForStyling(heroData.text, 'hero__emphasis')}
+              </p>
+              <button className="hero__button">Learn more</button>
+            </div>
           </div>
         </section>
         <section className="offers">
