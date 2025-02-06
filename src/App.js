@@ -2,7 +2,10 @@
 import React, { useState } from 'react';
 import './App.scss';
 import planetIcon from './assets/images/planet.svg';
-import rocketIcon from './assets/images/rocket.svg';
+import rocket1x from './assets/images/rocket@1x.png';
+import rocket2x from './assets/images/rocket@2x.png';
+
+// import rocketIcon from './assets/images/rocket.svg';
 import {
   INITIAL_MENU,
   INITIAL_HERO,
@@ -144,7 +147,13 @@ const App = () => {
       </main>
       <footer className="footer">
         <div className="footer__content">
-          <img src={rocketIcon} alt="Rocket" className="footer__rocket" />
+          {/* <img src={rocketIcon} alt="Rocket" className="footer__rocket" /> */}
+          <img
+            srcSet={`${rocket1x} 1x, ${rocket2x} 2x`}
+            src={rocket1x}
+            alt="Rocket"
+            className="footer__rocket"
+          />
           <p className="footer__text">Exciting space adventure!</p>
         </div>
       </footer>

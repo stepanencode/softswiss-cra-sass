@@ -813,12 +813,24 @@ $dreams-images: (
   }
 
   &__rocket {
-    width: 152px;
-    height: 178px;
+    width: 140px;
+    height: auto;
+    animation: rocket-float 3s infinite ease-in-out;
   }
 
   &__text {
     font-size: $font-size-md;
     color: $emphasis-color;
+    margin-top: 0;
+  }
+
+  @keyframes rocket-float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
   }
 }
