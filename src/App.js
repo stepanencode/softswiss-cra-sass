@@ -151,8 +151,8 @@ const App = () => {
       </header>
       <main className="main">
         <section className="hero">
-          <div className="container">
-            <div className="hero__content">
+          <div className="hero__content">
+            <div className="hero__info">
               <h1 className="hero__title">
                 {extractLastWordForStyling(heroData.title, 'hero__highlight')}
               </h1>
@@ -161,6 +161,7 @@ const App = () => {
               </p>
               <button className="hero__button">Learn more</button>
             </div>
+            <div className="hero__planet"></div>
           </div>
         </section>
         <section className="offers">
