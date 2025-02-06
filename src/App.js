@@ -1,108 +1,81 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useState, useEffect, useRef, useLayoutEffect } from 'react';
+import React, { useState } from 'react';
 import './App.scss';
 import planetIcon from './assets/images/planet.svg';
 import rocketIcon from './assets/images/rocket.svg';
 
-const initialMenu = [
+const INITIAL_MENU = [
   { name: 'Home', link: '#', isIcon: false },
   { name: 'Products', link: '#', isIcon: false },
   { name: 'Cart', link: '#', isIcon: true },
 ];
 
-const initialHero = {
+const INITIAL_HERO = {
   id: 98,
   title: 'Discover the vast expanses of space',
   text: 'Where the possibilities are endless!',
 };
 
-const initialOffers = [
+const INITIAL_OFFERS = [
   {
-    section: 'offers',
-    articles: [
-      {
-        id: 1,
-        title: 'Move the borders of reality!',
-        text: 'Go on a space adventure - it’s possible with us!',
-        modifier: 'move',
-      },
-      {
-        id: 2,
-        title: 'Space is not just stars and planets',
-        text: 'It is a majestic journey to explore.',
-        modifier: 'space',
-      },
-      {
-        id: 3,
-        title: 'For those who dream of stars',
-        text: 'Our offer: make your dream come true.',
-        modifier: 'stars',
-      },
-      {
-        id: 4,
-        title: 'Fulfill your fantastic dreams',
-        text: 'Space has never been so close.',
-        modifier: 'dreams',
-      },
-    ],
+    id: 1,
+    title: 'Move the borders of reality!',
+    text: 'Go on a space adventure - it’s possible with us!',
+    modifier: 'move',
+  },
+  {
+    id: 2,
+    title: 'Space is not just stars and planets',
+    text: 'It is a majestic journey to explore.',
+    modifier: 'space',
+  },
+  {
+    id: 3,
+    title: 'For those who dream of stars',
+    text: 'Our offer: make your dream come true.',
+    modifier: 'stars',
+  },
+  {
+    id: 4,
+    title: 'Fulfill your fantastic dreams',
+    text: 'Space has never been so close.',
+    modifier: 'dreams',
   },
 ];
 
-const initialJourney = {
+const INITIAL_JOURNEY = {
   id: 15,
   title: 'Embark on a space journey',
   text: 'Travelling into space is one of the most exciting and unforgettable adventures that can change your life forever. And if you have ever dreamed of exploring stars, planets and galaxies, then our company is ready to help you realize this dream. We offer a unique experience that will allow you to go on a space journey and see all the secrets of the universe. We guarantee that every moment in space will be filled with incredible impressions, excitement and new discoveries. Our team of professionals takes care of your safety and comfort so that you can fully enjoy your adventure in space. We offer various options for space excursions.',
 };
 
 const App = () => {
-  const [menuItems, setMenuItems] = useState([]);
-  const [offers, setSections] = useState([]);
-  const [journeyData, setJourneyData] = useState({});
-  const [heroData, setHeroData] = useState({});
-  const offersRef = useRef(null);
-  const [isExpanded, setIsExpanded] = useState(false);
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  const [menuItems, setMenuItems] = useState(INITIAL_MENU);
+  const [offers, setOffers] = useState(INITIAL_OFFERS);
+  const [journeyData, setJourneyData] = useState(INITIAL_JOURNEY);
+  const [heroData, setHeroData] = useState(INITIAL_HERO);
 
-  useLayoutEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
+  // const formatTextWithSpan = (text, className) => {
+  //   if (!text) return '';
+  //   const words = text.split(' ');
+  //   const lastWord = words.pop();
+  //   return (
+  //     <>
+  //       {words.join(' ')} <span className={className}>{lastWord}</span>
+  //     </>
+  //   );
+  // };
 
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
-  useEffect(() => {
-    setMenuItems(initialMenu);
-    setHeroData(initialHero);
-    setSections(initialOffers);
-    setJourneyData(initialJourney);
-  }, []);
-
-  const toggleText = () => {
-    if (!isMobile) {
-      setIsExpanded(!isExpanded);
-    }
-  };
-
-  const getSectionData = (sectionRef) => {
-    if (!sectionRef.current) return null;
-    return offers.find(
-      (section) => section.section === sectionRef.current.className
-    );
-  };
-
-  const formatTextWithSpan = (text, className) => {
-    if (!text) return '';
-    const words = text.split(' ');
-    const lastWord = words.pop();
+  const extractLastWordForStyling = (text, className) => {
+    if (!text?.trim()) return '';
+    const words = text.trim().split(' ');
     return (
       <>
-        {words.join(' ')} <span className={className}>{lastWord}</span>
+        {words.slice(0, -1).join(' ')}{' '}
+        <span className={className}>{words.at(-1)}</span>
       </>
     );
   };
-
   return (
     <div className="app">
       <header className="header">
@@ -180,19 +153,19 @@ const App = () => {
         <section className="hero">
           <div className="hero__content">
             <h1 className="hero__title">
-              {formatTextWithSpan(heroData.title, 'hero__highlight')}
+              {extractLastWordForStyling(heroData.title, 'hero__highlight')}
             </h1>
             <p className="hero__subtitle">
-              {formatTextWithSpan(heroData.text, 'hero__emphasis')}
+              {extractLastWordForStyling(heroData.text, 'hero__emphasis')}
             </p>
             <button className="hero__button">Learn more</button>
           </div>
         </section>
-        <section ref={offersRef} className="offers">
+        <section className="offers">
           <div className="container">
             <h2 className="offers__title">Offers</h2>
             <ul className="offers__list">
-              {getSectionData(offersRef)?.articles.map((article) => (
+              {offers?.map((article) => (
                 <li
                   key={article.id}
                   className={`offers__item offers__item--${article.modifier}`}
@@ -219,7 +192,9 @@ const App = () => {
                 className="journey__checkbox"
               />
               <p className="journey__text">{journeyData?.text}</p>
-              <label htmlFor="toggle-text" className="journey__link"></label>
+              <label htmlFor="toggle-text" className="journey__link">
+                {/* Read more */}
+              </label>
             </div>
           </div>
         </section>
