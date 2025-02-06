@@ -213,34 +213,13 @@ const App = () => {
           <div className="container">
             <div className="journey__content">
               <h2 className="journey__title">{journeyData?.title}</h2>
-
-              {isMobile ? (
-                <>
-                  <input
-                    type="checkbox"
-                    id="toggle-text"
-                    className="journey__checkbox"
-                  />
-                  <p className="journey__text">{journeyData?.text}</p>
-                  <label
-                    htmlFor="toggle-text"
-                    className="journey__link"
-                  ></label>
-                </>
-              ) : (
-                <>
-                  <p
-                    className={`journey__text ${
-                      isExpanded ? 'journey__text--expanded' : ''
-                    }`}
-                  >
-                    {journeyData?.text}
-                  </p>
-                  <button className="journey__link" onClick={toggleText}>
-                    {isExpanded ? 'Read less' : 'Read more'}
-                  </button>
-                </>
-              )}
+              <input
+                type="checkbox"
+                id="toggle-text"
+                className="journey__checkbox"
+              />
+              <p className="journey__text">{journeyData?.text}</p>
+              <label htmlFor="toggle-text" className="journey__link"></label>
             </div>
           </div>
         </section>

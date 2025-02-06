@@ -25,6 +25,8 @@ $font-size-2xl: 2rem;
 $font-size-3xl: 2.25rem;
 $font-size-4xl: 2.5rem;
 $font-size-5xl: 4.625rem;
+$font-size-h1-md: 3rem;
+$font-size-h1-lg: 4.5rem;
 $box-shadow-default: 0 4px 6px rgb(0 0 0 / 10%);
 $breakpoints: (
   sm: 360px,
@@ -514,7 +516,7 @@ $dreams-images: (
     flex-direction: column;
     align-items: center;
 
-    @include container;
+    // @include container;
 
     @include respond-to(md) {
       top: 50%;
@@ -543,7 +545,10 @@ $dreams-images: (
     @include font-style($font-size-3xl, 800, center, 1);
 
     @include respond-to(md) {
-      @include font-style($font-size-3xl, 800, left, 1);
+      @include font-style($font-size-h1-md, 800, left, 1);
+    }
+    @include respond-to(lg) {
+      @include font-style($font-size-h1-lg, 800, left, 1);
     }
   }
 
