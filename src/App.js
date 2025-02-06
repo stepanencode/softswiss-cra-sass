@@ -5,7 +5,6 @@ import planetIcon from './assets/images/planet.svg';
 import rocket1x from './assets/images/rocket@1x.png';
 import rocket2x from './assets/images/rocket@2x.png';
 
-// import rocketIcon from './assets/images/rocket.svg';
 import {
   INITIAL_MENU,
   INITIAL_HERO,
@@ -16,10 +15,10 @@ import {
 import extractLastWordForStyling from './utils/extractTextFromData';
 
 const App = () => {
-  const [menuItems, setMenuItems] = useState(INITIAL_MENU);
-  const [offers, setOffers] = useState(INITIAL_OFFERS);
-  const [journeyData, setJourneyData] = useState(INITIAL_JOURNEY);
-  const [heroData, setHeroData] = useState(INITIAL_HERO);
+  const [menuItems] = useState(INITIAL_MENU);
+  const [offers] = useState(INITIAL_OFFERS);
+  const [journeyData] = useState(INITIAL_JOURNEY);
+  const [heroData] = useState(INITIAL_HERO);
 
   return (
     <div className="app">
