@@ -18,15 +18,17 @@ $gradient-background: linear-gradient(
 $font-size-xs: 0.875rem;
 $font-size-sm: 1rem;
 $font-size-md: 1.125rem;
-$font-size-base: 1.2rem;
 $font-size-lg: 1.25rem;
+$font-size-2lg: 1.375rem;
 $font-size-xl: 1.5rem;
+$font-size-offer-xl: 1.625rem;
 $font-size-2xl: 2rem;
 $font-size-3xl: 2.25rem;
 $font-size-4xl: 2.5rem;
 $font-size-5xl: 4.625rem;
 $font-size-h1-md: 3rem;
 $font-size-h1-lg: 4.5rem;
+
 $box-shadow-default: 0 4px 6px rgb(0 0 0 / 10%);
 $breakpoints: (
   sm: 360px,
@@ -110,7 +112,6 @@ $dreams-images: (
   width: $width;
   max-width: $max-width;
   margin: $margin;
-  // background-color: red;
 }
 
 @mixin background-layer(
@@ -234,7 +235,7 @@ $dreams-images: (
     }
 
     &-text {
-      font-size: clamp($font-size-base, 2vw, $font-size-xl);
+      font-size: clamp($font-size-lg, 2vw, $font-size-xl);
       font-weight: bold;
     }
   }
@@ -291,6 +292,8 @@ $dreams-images: (
 
     @include respond-to(md) {
       padding-left: 0;
+      @include font-style($font-size-2lg, 700, center, normal);
+      text-transform: none;
     }
 
     &-link {
@@ -481,7 +484,6 @@ $dreams-images: (
 
   &__content {
     position: relative;
-    // max-width: 1248px;
     display: flex;
     flex-direction: column-reverse;
     justify-content: space-between;
@@ -519,8 +521,8 @@ $dreams-images: (
     }
 
     @include respond-to(lg) {
-      position: static; /* Убираем абсолютное позиционирование */
-      margin-left: auto; /* Сдвигаем планету вправо в потоке */
+      position: static;
+      margin-left: auto;
       transform: none;
     }
   }
@@ -528,7 +530,6 @@ $dreams-images: (
   &__info {
     padding: 250px 0 50px 0;
     text-align: center;
-    // background-color: wheat;
 
     @include respond-to(md) {
       padding: 125px 50px;
@@ -555,7 +556,15 @@ $dreams-images: (
     margin-bottom: 20px;
     font-weight: 800;
     color: $text-color;
-    // text-align: center;
+    font-size: $font-size-sm;
+
+    @include respond-to(md) {
+      font-size: $font-size-2lg;
+    }
+
+    @include respond-to(lg) {
+      font-size: $font-size-2xl;
+    }
   }
 
   &__highlight {
@@ -568,6 +577,11 @@ $dreams-images: (
 
   &__button {
     @include button;
+    font-size: $font-size-sm;
+
+    @include respond-to(md) {
+      font-size: $font-size-2lg;
+    }
 
     &:hover {
       background-color: $dark-emphasis-color;
@@ -579,14 +593,10 @@ $dreams-images: (
 .container {
   padding: 0 50px;
 
-  // background-color: plum;
-
   @include container;
 }
 
 .offers {
-  // padding: 2.5rem 0;
-
   &__title {
     margin-bottom: 1.5rem;
     color: $text-color;
@@ -661,7 +671,7 @@ $dreams-images: (
 
   &__item-title {
     margin-bottom: 1rem;
-    font-size: $font-size-xl;
+    font-size: $font-size-4xl;
     font-weight: 700;
 
     @include respond-to(md) {
@@ -680,14 +690,23 @@ $dreams-images: (
   &__item-text {
     margin-bottom: 1.5rem;
     font-size: $font-size-sm;
+
+    @include respond-to(lg) {
+      font-size: $font-size-offer-xl;
+    }
   }
 
   &__item-button {
+    font-size: $font-size-sm;
     @include button(
       $text-color: $emphasis-color,
       $bg-color: transparent,
       $align: flex-start
     );
+
+    @include respond-to(lg) {
+      font-size: $font-size-2lg;
+    }
 
     &:hover {
       color: $dark-emphasis-color;

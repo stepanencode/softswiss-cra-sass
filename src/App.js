@@ -55,17 +55,6 @@ const App = () => {
   const [journeyData, setJourneyData] = useState(INITIAL_JOURNEY);
   const [heroData, setHeroData] = useState(INITIAL_HERO);
 
-  // const formatTextWithSpan = (text, className) => {
-  //   if (!text) return '';
-  //   const words = text.split(' ');
-  //   const lastWord = words.pop();
-  //   return (
-  //     <>
-  //       {words.join(' ')} <span className={className}>{lastWord}</span>
-  //     </>
-  //   );
-  // };
-
   const extractLastWordForStyling = (text, className) => {
     if (!text?.trim()) return '';
     const words = text.trim().split(' ');
@@ -195,9 +184,7 @@ const App = () => {
                 className="journey__checkbox"
               />
               <p className="journey__text">{journeyData?.text}</p>
-              <label htmlFor="toggle-text" className="journey__link">
-                {/* Read more */}
-              </label>
+              <label htmlFor="toggle-text" className="journey__link"></label>
             </div>
           </div>
         </section>
