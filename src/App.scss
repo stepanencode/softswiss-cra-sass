@@ -526,12 +526,14 @@ $dreams-images: (
   }
 
   &__info {
-    padding-top: 250px;
+    padding: 250px 0 50px 0;
+    text-align: center;
     // background-color: wheat;
 
     @include respond-to(md) {
       padding: 125px 50px;
       width: 60%;
+      text-align: left;
     }
   }
 
@@ -553,6 +555,7 @@ $dreams-images: (
     margin-bottom: 20px;
     font-weight: 800;
     color: $text-color;
+    // text-align: center;
   }
 
   &__highlight {
@@ -564,7 +567,7 @@ $dreams-images: (
   }
 
   &__button {
-    @include button();
+    @include button;
 
     &:hover {
       background-color: $dark-emphasis-color;
