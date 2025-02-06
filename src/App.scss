@@ -66,10 +66,10 @@ $stars-images: (
   url('./assets/images/stars@4x.jpg') 4x
 );
 $dreams-images: (
-  url('./assets/images/dreams@1x.png') 1x,
-  url('./assets/images/dreams@2x.png') 2x,
-  url('./assets/images/dreams@3x.png') 3x,
-  url('./assets/images/dreams@4x.png') 4x
+  url('./assets/images/dreams@1x.jpg') 1x,
+  url('./assets/images/dreams@2x.jpg') 2x,
+  url('./assets/images/dreams@3x.jpg') 3x,
+  url('./assets/images/dreams@4x.jpg') 4x
 );
 
 @mixin font-style($size, $weight: 700, $align: start, $line-height: normal) {
@@ -597,6 +597,7 @@ $dreams-images: (
 }
 
 .offers {
+  padding-top: 2rem;
   &__title {
     margin-bottom: 1.5rem;
     color: $text-color;
@@ -716,7 +717,7 @@ $dreams-images: (
 }
 
 .journey {
-  padding-bottom: 2rem;
+  padding: 2rem 0;
 
   &__content {
     display: flex;
