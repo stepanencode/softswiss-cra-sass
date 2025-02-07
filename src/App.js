@@ -38,8 +38,6 @@ const App = () => {
             <label
               htmlFor="menu-toggle"
               className="menu__icon"
-              role="button"
-              aria-expanded="false"
               aria-controls="navigation"
             >
               <span></span>
@@ -49,7 +47,6 @@ const App = () => {
             </label>
             <nav
               className="navigation"
-              role="navigation"
               id="navigation"
               aria-label="Main Navigation"
             >
