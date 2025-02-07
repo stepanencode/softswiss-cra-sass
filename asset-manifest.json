@@ -1,0 +1,39 @@
+{
+  "files": {
+    "main.css": "/softswiss-cra-sass/static/css/main.80603ac0.css",
+    "main.js": "/softswiss-cra-sass/static/js/main.5fc28f68.js",
+    "static/media/space-main@4x.jpg": "/softswiss-cra-sass/static/media/space-main@4x.db64dad2d9c66aab749f.jpg",
+    "static/media/space-main@3x.jpg": "/softswiss-cra-sass/static/media/space-main@3x.ed8bc726fbac9f388b26.jpg",
+    "static/media/dreams@4x.jpg": "/softswiss-cra-sass/static/media/dreams@4x.b745e4acbe07fcc4b052.jpg",
+    "static/media/stars@4x.jpg": "/softswiss-cra-sass/static/media/stars@4x.2236948c69e904ee4f5f.jpg",
+    "static/media/move@4x.jpg": "/softswiss-cra-sass/static/media/move@4x.b5c124604081b27395fd.jpg",
+    "static/media/space-main@2x.jpg": "/softswiss-cra-sass/static/media/space-main@2x.51d951540a5b16a3017d.jpg",
+    "static/media/dreams@3x.jpg": "/softswiss-cra-sass/static/media/dreams@3x.2b2bcb8f887233fdd13b.jpg",
+    "static/media/stars@3x.jpg": "/softswiss-cra-sass/static/media/stars@3x.602df325d11bc7c539e8.jpg",
+    "static/media/move@3x.jpg": "/softswiss-cra-sass/static/media/move@3x.6f026afebeb8a10361c0.jpg",
+    "static/media/dreams@2x.jpg": "/softswiss-cra-sass/static/media/dreams@2x.d97fdc8092c30b0385b4.jpg",
+    "static/media/stars@2x.jpg": "/softswiss-cra-sass/static/media/stars@2x.f95518148379960b4388.jpg",
+    "static/media/move@2x.jpg": "/softswiss-cra-sass/static/media/move@2x.f4a23fd9828352c55d5e.jpg",
+    "static/media/earth@4x.png": "/softswiss-cra-sass/static/media/earth@4x.74c1958b3c9a3cc3eb96.png",
+    "static/media/space@4x.png": "/softswiss-cra-sass/static/media/space@4x.3bed722d78643cb15e96.png",
+    "static/media/space-main@1x.jpg": "/softswiss-cra-sass/static/media/space-main@1x.26b8bca06fd53c85064d.jpg",
+    "static/media/earth@3x.png": "/softswiss-cra-sass/static/media/earth@3x.fe56a8ff720b7cb26bc8.png",
+    "static/media/space@3x.png": "/softswiss-cra-sass/static/media/space@3x.b4a30eb05fd3cf6ddefc.png",
+    "static/media/space@2x.png": "/softswiss-cra-sass/static/media/space@2x.f6d5f76fad1bbbaa3875.png",
+    "static/media/dreams@1x.jpg": "/softswiss-cra-sass/static/media/dreams@1x.99d165f28d7a83295a57.jpg",
+    "static/media/stars@1x.jpg": "/softswiss-cra-sass/static/media/stars@1x.1bccb71ddc1a2708dde2.jpg",
+    "static/media/earth@2x.png": "/softswiss-cra-sass/static/media/earth@2x.2615521f9628647adcce.png",
+    "static/media/space@1x.png": "/softswiss-cra-sass/static/media/space@1x.5de1f2b744e1956465ed.png",
+    "static/media/move@1x.jpg": "/softswiss-cra-sass/static/media/move@1x.b44341b998878b9af5cf.jpg",
+    "static/media/earth@1x.png": "/softswiss-cra-sass/static/media/earth@1x.59f01870b6589f28a100.png",
+    "static/media/planet.svg": "/softswiss-cra-sass/static/media/planet.72928851129c1962931c8cb3a8f29ba1.svg",
+    "static/media/cart.svg": "/softswiss-cra-sass/static/media/cart.aa5b44fe878d55747850.svg",
+    "index.html": "/softswiss-cra-sass/index.html",
+    "main.80603ac0.css.map": "/softswiss-cra-sass/static/css/main.80603ac0.css.map",
+    "main.5fc28f68.js.map": "/softswiss-cra-sass/static/js/main.5fc28f68.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.80603ac0.css",
+    "static/js/main.5fc28f68.js"
+  ]
+}
